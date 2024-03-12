@@ -1,28 +1,27 @@
-# Meus Estudos 📚💻
+# My Studies 📚💻
 
-Bem-vindo ao meu repositório de estudos! Aqui, compartilho minha jornada na formação Full-Stack JavaScript, registrando meu progresso e compartilhando conhecimento com outros desenvolvedores.
+Welcome to my study repository! Here, I share my journey in Full-Stack JavaScript development, documenting my progress and sharing knowledge with fellow developers.
 
-## Sobre
+## About
 
-Este repositório estou compartilhando minha jornada na formação Full-Stack JavaScript..
+In this repository, I am sharing my journey in Full-Stack JavaScript development.
 
-## Tecnologias
+## Technologies
 
-Até o momento, estou focando nas seguintes tecnologias:
+So far, I am focusing on the following technologies:
 
 - HTML
 - CSS
 - JavaScript
 
-## Como Contribuir
+## How to Contribute
 
-Se você tiver sugestões de melhorias ou quiser realizar algum projeto comigo, sinta-se à vontade para me chamar no LinkedIn!
+If you have suggestions for improvements or would like to collaborate on a project with me, feel free to reach out to me on LinkedIn!
 
-[Visite meu perfil](https://www.linkedin.com/in/renansilvadev/): https://www.linkedin.com/in/renansilvadev/
+[Click here to visit my LinkedIn profile](https://www.linkedin.com/in/renansilvadev/)
 
-## Agradecimentos
+## Acknowledgments
 
-Agradeço a todos que contribuíram para o meu aprendizado e crescimento como desenvolvedor.
+I would like to thank everyone who has contributed to my learning and growth as a developer.
 
-Espero que este repositório seja útil para você, assim como está sendo para mim. Vamos aprender juntos! 🚀
-
+I hope this repository is helpful for you, just as it is for me. Let's learn together! 🚀
