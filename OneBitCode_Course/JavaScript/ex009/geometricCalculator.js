@@ -29,12 +29,12 @@ do {
   menu = parseFloat(
     prompt(
       `choose a geometric shape to find the area:
-    1 - Calculate the area of a triangle
-    2 - Calculate the area of a rectangle
-    3 - Calculate the area of a square
-    4 - Calculate the area of a trapezoid
-    5 - Calculate the area of a circle
-    6 - Close menu
+    1 - Calculate the area of a triangle.
+    2 - Calculate the area of a rectangle.
+    3 - Calculate the area of a square.
+    4 - Calculate the area of a trapezoid.
+    5 - Calculate the area of a circle.
+    6 - Close menu.
     `
     )
   );
