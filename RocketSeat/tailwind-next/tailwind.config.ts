@@ -6,8 +6,8 @@ const config: Config = {
   ],
   theme: {
     extend: {
-     colors:{
-      renan: '#fff'
+     gridTemplateColumns:{
+      app: 'minmax(18rem, 20rem) 1fr'
      }
     },
   },
