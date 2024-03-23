@@ -10,9 +10,15 @@ In this repository, I am sharing my journey in Full-Stack JavaScript development
 
 So far, I am focusing on the following technologies:
 
-- HTML
-- CSS
-- JavaScript
+<ul>
+  <li>JavaScript</li>
+  <li>TypeScript</li>
+  <li>React</li>
+  <li>Tailwind</li>
+  <li>Botstrap</li>
+  <li>SASS</li>
+  <li>HTML and CSS</li>
+</ul>
 
 ## How to Contribute
 
