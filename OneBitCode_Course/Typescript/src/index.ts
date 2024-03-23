@@ -7,27 +7,27 @@ function sendSpaceship(name:string, captain:string) {
     crew:[]
   }
   
-  alert(`The ship ${spaceship.name} comandada pelo capitão ${spaceship.captain} foi enviada em uma missão`)
+  alert(`The ship ${spaceship.name} commanded by captain ${spaceship.captain} has been sent on a mission`)
 
   return spaceship
 }
 
   function accelerate (targetSpeed: number, spaceship: { name: string, speed: number }) {
     if (spaceship.speed > targetSpeed) {
-      alert(`Reduzindo a velocidade da ${spaceship.name} para ${targetSpeed}...`)
+      alert(`Reducing the speed of ${spaceship.name} to ${targetSpeed}...`)
     }else if (spaceship.speed < targetSpeed) {
-      alert(`Aumentando a velocidade da ${spaceship.name} para ${targetSpeed}...`)
+      alert(`Increasing the speed of ${spaceship.name} to ${targetSpeed}...`)
     } else {
-      alert(`Mantendo a velocidade da ${spaceship.name}...`)
+      alert(`Maintaining the speed of ${spaceship.name}...`)
     }
   }
 
 
-const spaceship = prompt(`Insira o nome da nave a ser enviada.`)
-const spaceshipCaptain = prompt(`Insira o nome do capitão da nave.`)
+const spaceship = prompt(`Enter the name of the spaceship to be sent.`)
+const spaceshipCaptain = prompt(`Eenter the name of the spaceship's captain.`)
 
 const currentShip = sendSpaceship(spaceship, spaceshipCaptain)
 
-const speed = Number(prompt(`Insira a velocidade para a qual deseja acelerar.`))
+const speed = Number(prompt(`Enter the name of the spaceship's captain.`))
 
 accelerate(speed, currentShip)
