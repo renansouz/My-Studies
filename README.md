@@ -10,9 +10,17 @@ In this repository, I am sharing my journey in Full-Stack JavaScript development
 
 So far, I am focusing on the following technologies:
 
+### Programming Languages
 <ul>
   <li>JavaScript</li>
+  <li>python</li>
   <li>TypeScript</li>
+  <li>C</li>
+  <li>PHP</li>
+</ul>
+
+### Front-end
+<ul>
   <li>React</li>
   <li>Tailwind</li>
   <li>Botstrap</li>
