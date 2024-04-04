@@ -26,7 +26,6 @@ do {
       } else {
         alert("don't have patients in the queue");
       }
-
       break;
     case 3:
       alert("closing");
