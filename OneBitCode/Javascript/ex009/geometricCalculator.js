@@ -1,78 +1,79 @@
-function calculateTriangle(b, h) {
-  let result = (b * h) / 2;
-  return result;
+function calculateTriangle() {
+  const base = prompt("Enter the base of the triangle");
+  const height = prompt("Enter the height of the triangle");
+  return  base * height / 2;
 }
 
-function calculateRectangle(b, h) {
-  let result = b * h;
-  return result;
+function calculateRectangle() {
+  const base = prompt("Enter the base of the rectangle");
+  const height = prompt("Enter the height of the rectangle");
+  return base * height;
 }
 
-function calculateSquare(l) {
-  let result = l * l;
-  return result;
+function calculateSquare() {
+  const side = prompt("Enter the side of the square");
+  return side * side;
 }
 
-function calculateTrapezoid(bma, bme, height) {
-  let result = ((bma + bme) * height) / 2;
-  return result;
+function calculateTrapezoid() {
+  const biggerBase = parseFloat(prompt("Enter the larger base of the trapezoid"));
+  const smallerBase = parseFloat(prompt("Enter the smaller base of the trapezoid"));
+  const height = parseFloat(prompt("Enter the height of the trapezoid"));
+  return ((biggerBase + smallerBase) * height) / 2;
 }
 
-function CalculateCircle(r) {
-  let result = 3.14 * r;
-  return result;
+function CalculateCircle() {
+  let radious = parseFloat(prompt("Enter the radious of the circle"));
+  return 3.14 * radious * radious;
 }
 
-let menu;
+function showMenu(){
+  return prompt(
+    `choose a geometric shape to find the area:
+  1 - Calculate the area of a Triangle.
+  2 - Calculate the area of a Rectangle.
+  3 - Calculate the area of a Square.
+  4 - Calculate the area of a Trapezoid.
+  5 - Calculate the area of a Circle.
+  6 - Close menu.
+  `
+  )
+}
 
-do {
-  menu = parseFloat(
-    prompt(
-      `choose a geometric shape to find the area:
-    1 - Calculate the area of a Triangle.
-    2 - Calculate the area of a Rectangle.
-    3 - Calculate the area of a Square.
-    4 - Calculate the area of a Trapezoid.
-    5 - Calculate the area of a Circle.
-    6 - Close menu.
-    `
-    )
-  );
+function execute(){
+  let option = ""
+  do {
+  option = showMenu();
+  let result;
 
-  switch (menu) {
-    case 1:
-      let Tbase = parseFloat(prompt("Enter the base of the triangle"));
-      let Theight = parseFloat(prompt("Enter the height of the triangle"));
-      alert(`The area of the triangle is ${calculateTriangle(Tbase, Theight)}`);
+  switch (option) {
+    case "1":
+      result = calculateTriangle()
       break;
-    case 2:
-      let Rbase = parseFloat(prompt("Enter the base of the rectangle"));
-      let Rheight = parseFloat(prompt("Enter the height of the rectangle"));
-      alert(
-        `The area of the rectangle is ${calculateRectangle(Rbase, Rheight)}`
-      );
+    case "2":
+      result = calculateRectangle()
       break;
-    case 3:
-      let Sside = parseFloat(prompt("Enter the side of the square"));
-      alert(`The area of the square is ${calculateSquare(Sside)}`);
+    case "3":
+      result = calculateSquare()
       break;
-    case 4:
-      let Tbma = parseFloat(prompt("Enter the larger base of the trapezoid"));
-      let Tbme = parseFloat(prompt("Enter the smaller base of the trapezoid"));
-      let Th = parseFloat(prompt("Enter the height of the trapezoid"));
-
-      alert(
-        `The area of the trapezoid is ${calculateTrapezoid(Tbma, Tbme, Th)}`
-      );
+    case "4":
+      result = calculateTrapezoid()
       break;
-    case 5:
-      let radious = parseFloat(prompt("Enter the radious of the circle"));
-      alert(`The area of the circle is ${CalculateCircle(radious)}`);
+    case "5":
+      result = CalculateCircle()
       break;
-    case 6:
+    case "6":
       alert("closing");
       break;
     default:
       alert(`This option is not avaible`);
   }
-} while (menu != 6);
+
+  if (result) {
+    alert("Result: " + result)
+  }
+
+} while (option != "6");
+}
+
+execute()
