@@ -8,7 +8,7 @@ In this repository, I am sharing my journey in Full-Stack JavaScript development
 
 ## Technologies
 
-So far, I am focusing on the following technologies:
+You'll find projects and studies showcasing a range of technologies. I've focused on...
 
 ### Programming Languages
 <ul>
