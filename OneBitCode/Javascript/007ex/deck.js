@@ -5,7 +5,6 @@ do {
   menu = prompt(
     `Interaected menu:\nIn this deck there are: ${cards.length} cards \n\nchoose an option below: \n1 - Add a card \n2 - Draw a card  \n3 - CLOSE`
   );
-
   switch (menu) {
     case "1":
       let newCard = prompt(
