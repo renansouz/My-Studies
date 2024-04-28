@@ -37,7 +37,7 @@ function addContact() {
 }
 
 function removeContact() {
-  const contactSection = document.getElementById('contact-list')
+  const contactSection = document.getElementById('contacts-list')
 
   const titles = document.getElementsByTagName('h3')
   const contacts = document.getElementsByTagName('ul')
