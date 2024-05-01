@@ -8,21 +8,38 @@
   <script src="tiktaktoe.js" defer></script>
 </head>
 <body>
-  <h1>Welcome to Tik Tak Toe</h1>
+  <h1 id="h1">Welcome to Tik Tak Toe</h1>
   <main>
     <div id="register">
       <div id="divPlayer1">
         <label for="player1">Insert the name of the Player 1</label>
         <input type="text" id="player1" placeholder="Player 1">
-        <button id="continueBtn">Continue</button>
+        <button class="btn" id="continueBtn">Continue</button>
       </div>
 
       <div id="divPlayer2">
         <label for="player2">Insert the name of the Player 2</label>
         <input type="text" id="player2" placeholder="Player 2">
-        <button id="startBtn">Start Game</button>
+        <button class="btn" id="startBtn">Start Game</button>
       </div>
 
+
+      <div id="container">
+        <button class="key" id="0-btn"></button>
+        <button class="key" id="1-btn"></button>
+        <button class="key" id="2-btn"></button>
+        <button class="key" id="3-btn"></button>
+        <button class="key" id="4-btn"></button>
+        <button class="key" id="5-btn"></button>
+        <button class="key" id="6-btn"></button>
+        <button class="key" id="7-btn"></button>
+        <button class="key" id="8-btn"></button>
+      </div>
+
+      <div id="result">
+        <h2 id="resultH2">aaaaa</h2>
+        <button id="playAgain" class="btn">Play Again</button>
+      </div>
     </div>
   </main>
 </body>

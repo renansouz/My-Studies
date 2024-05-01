@@ -5,7 +5,13 @@
   font-family: monospace;
 }
 
+:root {
+  --background: #f1f5f9
+}
+
 body {
+  position: relative;
+  background-color: var(--background);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +23,26 @@ body {
 h1 {
   margin-top: -11rem;
   margin-bottom: 4rem;
+}
+
+input {
+  padding: 0.75rem;
+  border-radius: 3px;
+  background-color: #f6fafa;
+  font-weight: 900;
+  border: none;
+  border: 1px solid black;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background-color: #39ac65;
+  color: var(--background);
+  font-weight: 900;
+  border: none;
+  border: 1px solid black;
 }
 
 #register {
@@ -32,4 +58,45 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+
+#container {
+  display: none;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.key { 
+  cursor: pointer;
+  height: 10rem;
+  width: 10rem;
+  font-size: 4rem;
+  font-weight: 900;
+  background-color: #f6fafa;
+  border: none;
+  border: 1px solid black;
+
+}
+
+.key:hover {
+  background-color: #e0e3e5;
+}
+
+#result {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0 0 0 / 0.45);
+}
+
+#result h2 {
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: rgb(11, 250, 151);
 }
