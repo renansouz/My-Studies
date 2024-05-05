@@ -1,5 +1,5 @@
 const average = (...numbers) => {
-  let sum = numbers.reduce((accum, num) =>  (accum + num), 0)
+  const sum = numbers.reduce((accum, num) =>  (accum + num), 0)
   return sum / numbers.length
 }
 
