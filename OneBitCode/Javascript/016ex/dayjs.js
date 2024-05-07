@@ -18,5 +18,4 @@ function birthday(date){
   console.log(daysToNextBirthday);
 }
 
-
 birthday('2005-10-08')
