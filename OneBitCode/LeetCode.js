@@ -1,12 +1,26 @@
-var reduce = function(nums, fn, init) {
-  if (nums.length === 0){
-      return init
-  }
-  let accum = 0
-  for (let i = 0; i < nums.length; i++){
-    accum += fn(accum, nums[i])
-  }
-  return accum
+/**
+ * @param {Function} fn
+ * @return {Function}
+ */
+var once = function(fn) {
+  let called = false;
+  let result;
+
+  return function (...args) {
+      if (!called) {
+          result = fn(...args);
+          called = true;
+          return result;
+      } else {
+          return undefined;
+      }
+  };
 };
 
-console.log(reduce([1,2,3,4], function sum(accum, curr) { return accum + curr; }, 0));
+/**
+* let fn = (a,b,c) => (a + b + c)
+* let onceFn = once(fn)
+*
+* onceFn(1,2,3); // 6
+* onceFn(2,3,6); // returns undefined without calling fn
+*/
