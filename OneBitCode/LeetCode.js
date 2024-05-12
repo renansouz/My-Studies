@@ -1,26 +1,25 @@
-/**
- * @param {Function} fn
- * @return {Function}
- */
-var once = function(fn) {
-  let called = false;
-  let result;
+function twoSum(nums, target) {
+    // Create a Map to store the complement of each element
+    const complementMap = new Map();
 
-  return function (...args) {
-      if (!called) {
-          result = fn(...args);
-          called = true;
-          return result;
-      } else {
-          return undefined;
-      }
-  };
-};
+    // Iterate through the array
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        // Calculate the complement for the current element
+        const complement = target - num;
 
-/**
-* let fn = (a,b,c) => (a + b + c)
-* let onceFn = once(fn)
-*
-* onceFn(1,2,3); // 6
-* onceFn(2,3,6); // returns undefined without calling fn
-*/
+        // Check if the complement exists in the Map
+        if (complementMap.has(complement)) {
+            // If found, return the indices of the two numbers
+            return [complementMap.get(complement), i];
+        } else {
+            // If not found, store the current number and its index in the Map
+            complementMap.set(num, i);
+        }
+    }
+}
+
+// Example usage
+const nums = [2, 7, 11, 15];
+const target = 9;
+console.log(twoSum(nums, target)); // Output: [0, 1]
