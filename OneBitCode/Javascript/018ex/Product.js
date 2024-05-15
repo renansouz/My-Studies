@@ -22,5 +22,5 @@ console.log(fastAndSlow);
 
 fastAndSlow.calculateDiscount(30)
 fastAndSlow.addToStock(2)
-
+ 
 console.log(fastAndSlow);
