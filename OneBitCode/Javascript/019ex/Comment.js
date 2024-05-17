@@ -1,6 +1,6 @@
 class Comment {
-  constructor(comment) {
-    this.comment = comment
+  constructor(comments) {
+    this.comment = comments
   }
 }
 
