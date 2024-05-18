@@ -1,6 +1,8 @@
 class Comment {
-  constructor(comment) {
-    this.comment = comment
+  constructor(username, content) {
+    this.username = username
+    this.content = content
+    this.createdAt = new Date()
   }
 }
 

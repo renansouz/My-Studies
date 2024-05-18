@@ -1,13 +1,12 @@
 const Author = require('./Author')
-const Post = require('./Post')
 
 let renan = new Author('Renan')
-let angularPost = new Post('Angular', 'Renan')
-renan.addPost(angularPost)
-let reactPost = new Post('React', 'Renan')
-renan.addPost(reactPost)
-angularPost.addComment('Lindo')
-angularPost.addComment('feio')
-reactPost.addComment('mara')
+let angularPost = renan.writePost("Angular", "Lorem ipsum dolor sic...")
+angularPost.addComment("Nicole", 'Lindo')
+angularPost.addComment("Elaine", 'feio')
 
-console.log(JSON.stringify(renan, null, 2));
+let reactPost = renan.writePost("React", "Lorem ipsum dolor sic...")
+reactPost.addComment("Nicole", 'mara')
+
+console.log(renan);
+console.log(angularPost, reactPost);
