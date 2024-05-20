@@ -14,7 +14,7 @@ export function Sidebar () {
               <Input.Prefix>
                 <Search className="h-5 w-5 text-zinc-500" />
               </Input.Prefix>
-              <Input.Control/>
+              <Input.Control placeholder="Search"/>
             </Input.Root>
             
     <nav className="space-y-0.5">
