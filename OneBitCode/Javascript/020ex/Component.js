@@ -1,45 +1,28 @@
-class Component {
-  #element
-  constructor(tagName){
-  this.#element = document.createElement(tagName)
+export class Component {
+  #element = null
+
+  constructor(tag, parent, options){
+    this.tag = tag
+    this.parent = parent
+    this.options = options
+    this.build()
   }
 
-  getElement(){
+  getElement() {
     return this.#element
   }
 
   build(){
-    this.#element = document.createElement(this.#element.tagName)
-    return this.#element
+    this.#element = document.createElement(this.tag)
+    Object.assign(this.#element, this.options)
+    return this
   }
 
-  render(target) {
-    target.appendChild(this.#element)
+  render() {
+    if (this.parent instanceof Component) {
+      this.parent.getElement().append(this.#element)
+    } else {
+      document.querySelector(this.parent).append(this.#element)
+    }
   }
 }
-
-class Input extends Component {
-
-}
-
-class Label extends Component {
-  constructor(value, tagName){
-  super(tagName)
-  this.value = value
-}
-}
-
-class form extends Component {
-  constructor(content, tagName){
-    super(tagName)
-    this.content = content
-  }
-}
-
-const divComponent = new Component('div')
-divComponent.getElement.textContent = "hello, world!"
-divComponent.render(document.body)
-
-divComponent.build()
-divComponent.getElement.textContent = "Hello, World! (rebuilt)";
-divComponent.render(document.body)
