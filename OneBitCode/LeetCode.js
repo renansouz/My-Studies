@@ -1,47 +1,41 @@
-var orangesRotting = function(grid) {
-    const rows = grid.length;
-    const cols = grid[0].length;
-    const queue = [];
-    let freshOranges = 0;
-
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-            if (grid[r][c] === 2) {
-                queue.push([r, c]);
-            } else if (grid[r][c] === 1) {
-                freshOranges += 1;
-            }
+var findDuplicateSubtrees = function(root) {
+    const map = new Map();
+    const result = [];
+    
+    const traverse = (node) => {
+        if (!node) return "#";
+        const serial = `${node.val},${traverse(node.left)},${traverse(node.right)}`;
+        if (map.has(serial)) {
+            map.set(serial, map.get(serial) + 1);
+        } else {
+            map.set(serial, 1);
         }
-    }
-
-    let minutesPassed = 0;
-    const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-
-    while (queue.length && freshOranges > 0) {
-        minutesPassed += 1;
-        let newQueue = [];
-        while (queue.length) {
-            const [x, y] = queue.shift();
-            for (const [dx, dy] of directions) {
-                const nx = x + dx;
-                const ny = y + dy;
-                if (nx >= 0 && ny >= 0 && nx < rows && ny < cols && grid[nx][ny] === 1) {
-                    grid[nx][ny] = 2;
-                    freshOranges -= 1;
-                    newQueue.push([nx, ny]);
-                }
-            }
+        if (map.get(serial) === 2) {
+            result.push(node);
         }
-        queue.push(...newQueue);
-    }
-
-    return freshOranges === 0 ? minutesPassed : -1;
+        return serial;
+    };
+    
+    traverse(root);
+    return result;
 };
 
 // Example usage
-const grid = [
-    [2, 1, 1],
-    [1, 1, 0],
-    [0, 1, 1]
-];
-console.log(orangesRotting(grid)); // Output: 4
+const tree = {
+    val: 1,
+    left: {
+        val: 2,
+        left: { val: 4, left: null, right: null },
+        right: null
+    },
+    right: {
+        val: 3,
+        left: {
+            val: 2,
+            left: { val: 4, left: null, right: null },
+            right: null
+        },
+        right: { val: 4, left: null, right: null }
+    }
+};
+console.log(findDuplicateSubtrees(tree)); // Output: [[TreeNode], [TreeNode]]
