@@ -11,13 +11,14 @@ class Reservation {
   static showBaseFee() {
     console.log(`Base fee is ${Reservation.baseFee}`);
   }
-
+  
   static get premiumFee() {
     return Reservation.baseFee * 1.5
   }
 }
 
 Reservation.showBaseFee()
+console.log(`Premium fee is $${Reservation.premiumFee}`);
 
 const r1 = new Reservation(3, "201", 5)
 console.log(r1);
