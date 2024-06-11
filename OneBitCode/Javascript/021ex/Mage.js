@@ -1,16 +1,17 @@
-import { Character } from "./Character.js"
+const Character = require("./Character")
 
-export class Mage extends Character {
-  constructor(name, life, attack, defense, power) {
+class Mage extends Character {
+  constructor(name, lifePts, attackPts, defensePts, power) {
+    super(name, lifePts, attackPts, defensePts)
     this.power = power
-    super(name, life, attack, defense)
   }
 
   attack(target) {
-    target.life -= this.attack  + power - target.defense
-    return console.log(`${this.name} attacks. The ${target} lost ${target.life - this.attack} point of life`);
+    target.lifePts -= (this.attackPts  + power) - target.defensePts
   }
   heal(target) {
-    target.life += (power * 2)
+    target.lifePts += power * 2
   }
 }
+
+module.exports = Mage

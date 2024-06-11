@@ -1,12 +1,9 @@
-import { Character } from "./Character.js"
+const Character = require("./Character")
 
-export class Thief extends Character {
-  constructor(name, life, attack, defense) {
-    super(name, life, attack, defense)
-  }
-
+class Thief extends Character {
   attack(target) {
-    target.life -= this.attack * 2 - target.defense
-    return console.log(`${this.name} attacks. The ${target} lost ${target.life - this.attack} point of life`);
+    target.life -= (this.attack - target.defense)  * 2 
   }
 }
+
+module.exports = Thief
