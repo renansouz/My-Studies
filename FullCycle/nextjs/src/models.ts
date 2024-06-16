@@ -2,15 +2,15 @@ export type EventModel = {
   id: number;
   name: string;
   date: string;
-  image_url: string; 
+  image_url: string;
   available_spots: number;
   price: number;
-  create_at: string;
-}
+  created_at: string;
+};
 
 export enum SpotStatus {
-  available = 'available',
-  sold = 'sold',
+  available = "available",
+  sold = "sold",
 }
 
 export type SpotModel = {
@@ -18,4 +18,4 @@ export type SpotModel = {
   name: string;
   status: SpotStatus;
   event_id: number;
-}
+};
