@@ -7,3 +7,15 @@ export type EventModel = {
   price: number;
   create_at: string;
 }
+
+export enum SpotStatus {
+  available = 'available',
+  sold = 'sold',
+}
+
+export type SpotModel = {
+  id: number;
+  name: string;
+  status: SpotStatus;
+  event_id: number;
+}
