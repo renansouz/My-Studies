@@ -1,0 +1,11 @@
+
+
+/* Old Syntax */
+@media (min-width: 480px) { body { background: lightblue; } }
+@media (max-width: 1040px) { body { background: lightcoral; } }
+@media (min-width: 480px) and (max-width: 1040px) { body { background: lightgreen; } }
+
+/* New Syntax */
+@media (width >= 480px) { body { background: lightblue; } }
+@media (width <= 1040px) { body { background: lightcoral; } }
+@media (480px <= width <= 1040px) { body { background: lightgreen; } }
