@@ -1,3 +1,5 @@
+// fuck everything TODAY IS 100 DAYS OF CODE
+
 function PhoneNumber(phoneNumberString) {
   const fixedString = phoneNumberString.replace(/[\sa-zA-Z]/g, "")
   this.countryCode = fixedString.match(/(?<=\+)\d{1,3}/)[0]
