@@ -26,7 +26,7 @@ function execute() {
     setTimeout(() => {
       console.log(`Resolvendo a promise...`);
       resolve('resultado')
-    })
+    }, 1000 * 2)
   })
 }  
   
