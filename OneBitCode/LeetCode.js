@@ -1,21 +1,24 @@
-function lengthOfLongestSubstring(s) {
-    let n = s.length;
-    let set = new Set();
-    let maxLength = 0, i = 0, j = 0;
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let map = new Map();
+    let start = 0;
+    let maxLength = 0;
     
-    while (i < n && j < n) {
-        if (!set.has(s[j])) {
-            set.add(s[j++]);
-            maxLength = Math.max(maxLength, j - i);
-        } else {
-            set.delete(s[i++]);
+    for (let end = 0; end < s.length; end++) {
+        if (map.has(s[end])) {
+            start = Math.max(map.get(s[end]) + 1, start);
         }
+        map.set(s[end], end);
+        maxLength = Math.max(maxLength, end - start + 1);
     }
     
     return maxLength;
-}
+};
 
-// Test cases
+// Test the function
 console.log(lengthOfLongestSubstring("abcabcbb")); // Output: 3
 console.log(lengthOfLongestSubstring("bbbbb"));    // Output: 1
 console.log(lengthOfLongestSubstring("pwwkew"));   // Output: 3
