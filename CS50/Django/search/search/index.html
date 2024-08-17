@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .search-container {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 400px;
+            height: 30px;
+            border-radius: 20px;
+            padding: 5px;
+            border: 1px solid #dfe1e5;
+            outline: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #dfe1e5;
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+        .nav-links {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .nav-links a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #1a73e8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-links">
+        <a href="images.html">Image Search</a>
+        <a href="advanced.html">Advanced Search</a>
+    </div>
+
+    <div class="search-container">
+        <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" placeholder="Search...">
+            <div>
+                <button type="submit">Google Search</button>
+                <button type="submit" formaction="https://doodles.google/" formmethod="GET">I'm Feeling Lucky</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
