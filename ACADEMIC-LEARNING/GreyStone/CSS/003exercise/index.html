@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>images?</title>
+</head>
+<style>
+  .container {
+    border: 1px solid red;  
+  }
+  .dotted { border-style: dotted;}
+  .dashed { border-style: dashed;}
+  .solid { border-style: solid;}
+  .double { border-style: double;}
+
+  div {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .radius {
+    border: 0.2rem solid black;
+    border-radius: 10px;
+  }
+
+  .bottom-radius {
+    border: 0.2rem solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+</style>
+<body>
+  <section class="container">
+    <img src="../../HTML/img/profile.jpg" alt="user's profile" width="100px" height="100px">
+    <img src="../../HTML/img/profile.jpg" alt="user's profile" width="100px" height="100px">
+    <img src="../../HTML/img/profile.jpg" alt="user's profile" width="100px" height="100px">
+    <h1>H one Tag</h1>
+  </section>
+  <section>
+    <p class="dotted">dotted border</p>
+    <p class="dashed">dashed border</p>
+    <p class="solid">solid border</p>
+    <p class="double">double border</p>
+  </section>
+  <section>
+    <div class="radius">
+      Div radius
+    </div>
+    <div class="bottom-radius">
+      Div bottom-radius
+    </div>
+  </section>
+</body>
+</html>

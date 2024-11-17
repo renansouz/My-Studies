@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>do it</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .main {
+    margin: 2rem;
+    width: 200px;
+    height: 200px;
+    padding: 2rem;
+    border: 1px solid burlywood;
+  }
+  .third {
+    margin: 2.5rem 0px 5.5rem 30px;
+  }
+
+  p:nth-child(even){
+    background-color: rgba(255, 0, 0, 0.616);
+  }
+  p:nth-child(odd){
+    background-color: rgba(0, 0, 255, 0.445);
+  }
+
+  .text-direction {
+    direction: rtl; /* rtl = right-to-left, ltr = left-to-right */
+  }
+
+  .text-indent {
+    text-indent: 30px; /* Indents first line by 30px */
+  }
+
+  .white-space {
+    white-space: nowrap; /* Options: normal, nowrap, pre, pre-wrap, pre-line */
+  }
+  ul{
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    background: antiquewhite;
+  }
+ li:nth-child(1) {
+  background-color: black;
+  color: white;
+  padding: 0 10px;
+ }
+ li:nth-child(1):hover{
+  background-color: antiquewhite;
+  color: black;
+  padding: 0 10px;
+ }
+ li:hover{
+  background-color: black;
+  padding: 0 10px;
+  color: white;
+ }
+
+ .central {
+  margin: 2rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+ }
+</style>
+<body>
+  <ul>
+    <li>home</li>
+    <li>About us</li>
+    <li>Contact us</li>
+    <li>Shop</li>
+  </ul>
+  <section class="main">
+    <div>
+      <p>first</p>
+      <p>second</p>
+      <p class="third">third</p>
+      <p>fourth</p>
+    </div>
+  </section>
+
+  <div class="text-direction">This text is right-to-left.</div>
+  <div class="text-indent">This text is indented on the first line.</div>
+  <div class="white-space">This is a long line of text that will not wrap.</div>
+
+  <div class="central">
+    <p>CSS</p>
+  </div>
+</body>
+</html>
+<!-- text direction, text indentation, white space -->

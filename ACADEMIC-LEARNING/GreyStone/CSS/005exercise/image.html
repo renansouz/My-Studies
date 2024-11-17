@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image</title>
+  </head>
+  <body>
+      <div class="main">
+      <div class="img">
+       </div>
+       <h1>Tag</h1>
+      </div>
+      <div class="border">
+          <h1>
+              H1 Tag
+          </h1>
+      </div>
+           <div class="border border-bottom-radius">
+                BORDER BOTTOM RADIUS
+           </div>
+           <ul class="ul-nav">
+               <li class="active">Home</li>
+               <li>About us</li>
+               <li>Contact us</li>
+           </ul>
+           <!-- display block -->
+           <div class="display-block-container">
+               <span>Class </span>
+                <span>304</span>
+           </div>
+           <!-- display inline -->
+          <div class="display-inline-container">
+               <p>Class </p>
+                <p>304</p>
+           </div>
+           <!-- display flex -->
+           <div class="display-flex-container">
+               <p class="border width-p-one">Class </p>
+                <p class="border width-p-two">304</p>
+           </div>
+              <!-- display inline-block -->
+           <div class="display-inline-block-container">
+               <p class="border ">Class </p>
+                <p class="border">304</p>
+           </div>
+           <!-- display flex table -->
+           <div class="display-table-container">
+            <p class="border width-p-one">Class </p>
+             <p class="border width-p-two">304</p>
+        </div>
+  </body>
+</html>
+<style>
+    .display-table-container {
+        display: table;
+    }
+    .display-block-container span{
+        display: block;
+    }
+    .display-inline-container p{
+        display: inline;
+    }
+    .display-flex-container {
+        display: flex;
+        gap : 10px;
+        justify-content: space-between;
+        /* flex-direction: row-reverse; */
+    }
+    .display-inline-block-container p{
+        display: inline-block;
+    }
+    .width-p-one{
+        width: 20%;
+    }
+    .width-p-two{
+        width: 80%;
+    }
+    .active {
+        border : 1px solid black;
+        border-radius : 10px;
+        width: 50px;
+        padding : 10px 10px;
+        /* padding : 5px 10px 30px 50px; */
+        /* padding : 10px; */
+        /* padding-top : 10px; */
+
+    }
+    .border-bottom-radius{
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    .border{
+        border : 10px solid rebeccapurple;
+        /* border-radius: 30px; */
+        margin-top : 10px;
+    }
+    .main {
+        border : 1px solid red;
+    }
+    body{
+        max-width: 100%;
+    }
+    .img{
+        background-image: url("images/dummy.png");
+        background-repeat: repeat-x;
+        width: 100%;
+        background-size: contain; /* Ensures the image scales to fit the width */
+       /* 
+       if you want to provide height and width
+       background-size: 100px 100px ;
+       */
+        height: 100px;
+        min-width: 70%;
+        max-width: 200px;
+    }
+</style>

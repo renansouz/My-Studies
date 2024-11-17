@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wawiwa-tech</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial;
+    }
+    .main {
+      background: linear-gradient(to right, #3c0166, #ba55ce);
+      color: whitesmoke;
+      max-width: 100%;
+      height: 100vh;
+    }
+    .menu {
+      display: flex;
+      gap: 3rem;
+      list-style-type: none;
+      padding: 1rem;
+      margin-left: 10rem;
+    }
+    .menu li a {
+      all: unset;
+      color: whitesmoke;
+      cursor: pointer;
+      padding: 2rem 0;
+    }
+    .menu li a:hover {
+      color: #ba55ce;
+    }
+    .phase1 {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1.5rem;
+    }
+    .phase1 div {
+      margin: 7rem  0 5rem;
+    }
+    h1 {
+      font-weight: 100;
+      font-size: 2.5rem;
+      text-indent: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .btt1 {
+      color: whitesmoke;
+      background-color: #ff37cd;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    .btt2 {
+      color: #ff37cd;
+      background: none;
+      border: 1px solid #ff37cd;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    .relative-wpp {
+      position: relative;
+    }
+    .wppIcon {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 999rem;
+      border: 3px solid whitesmoke;
+      background-color: rgb(50, 199, 45);
+      width: 4rem;
+      height: 4rem;
+      bottom: 40px;
+      left: 10px;
+    }
+
+    .phase2, .phase3, .phase4 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      padding: 5rem 5rem;
+      gap: 2.5rem;
+    }
+    .phase2 h2, h3, .phase3 h2, h3, .phase4 h2, h3  {
+      color: #a345b6;
+      margin-bottom: 1rem;
+    }
+    .phase2 h2::after, .phase3 h2::after, .phase4 h2::after {
+      content: '';
+      display: block;
+      width: 70px; 
+      height: 2px;
+      background-color: #a345b6; 
+      margin: 1.5rem auto 0.8rem; 
+    }
+    .topics {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+    .study-topic img{
+      width: 7rem;
+      height: 6rem;
+    }
+    .study-topic p {
+      margin: 0 2rem;
+      text-align: left;
+    }
+    .heading-section {
+      margin: 0 11rem;
+      font-size: 1.2rem
+    }
+
+    .phase3 {
+      background: linear-gradient(to top, #3c0166, #ffffff);
+    }
+    .phase3-images {
+      width: 100%;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-around;
+    }
+    .phase3-images img {
+      width: 23rem;
+      height: 18rem;
+      border-radius: 10px;
+    }
+    .work-topic {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .work-topic p {
+      text-align: center;
+      width: 11rem;
+      padding: 0.5rem 1rem;
+      border: 2px dotted #ff37cd;
+    }
+    .work-topic img {
+      margin-top: 1rem;
+      width: 6rem;
+    }
+    .ball {
+      background: linear-gradient(to top, #ff37cd, #a345b6);
+      width: 10rem;
+      height: 10rem;
+      border-radius: 100rem;
+      box-shadow: 0 0 100px rgb(177, 177, 177);
+    }
+    .ball::before{
+      content: attr(data-number);
+      display: absolute;
+      padding: .9rem 1.1rem;
+      border-radius: 100rem;
+      border: 2px solid #ff37cd;
+      background-color: white; 
+      margin-left: 3rem; 
+   }
+
+   .phase5 {
+      background: linear-gradient(to top, #a345b6, #3c0166);
+      display: flex;
+      justify-content: space-evenly;
+      padding: 4rem 0;
+      color: whitesmoke;
+    }
+    .phase5-images img {
+      width: 19rem;
+      height: 18rem;
+      border-radius: 10px;
+    }
+    .phase5-text p{
+      margin-bottom: 1rem;
+    }
+    .phase5-topic-field{
+      display: flex;
+      gap: 3rem;
+    }
+    .phase5-topic-field div{
+      margin-bottom: 1rem;
+    }
+    .phase5-topics {      
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 16rem;
+    }
+    .phase5-topics img{      
+      width: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <nav>
+      <ul class="menu">
+        <li><a href="">ABOUT</li></a>
+        <li><a href="">OUR COURSES</a></li>
+        <li><a href="">HOW IT WORKS</a></li>
+        <li><a href="">CONTACT US</a></li>
+      </ul>
+    </nav>
+    <section class="phase1">
+      <img src="https://static.wixstatic.com/media/de48ba_d0b784b9e19a4685bc90e03c46832a4a~mv2.png/v1/fill/w_500,h_520,al_c,lg_1,q_85,enc_auto/%E8%B3%87%E7%94%A2%201.png" alt="developer coding" width="350rem" height="350rem">
+      <div>
+        <h1>DEVELOP AND BUILD <br> MY FIRST ROBOT</h1>
+        <button class="btt1">All courses</button>
+        <button class="btt2">show me more</button>
+      </div>
+    </section>
+    
+    <section class="relative-wpp">
+      <div class="wppIcon">
+        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-white-icon.png" alt="whatsapp logo" width="20px" height="20px">
+      </div>
+    </section>
+  </div>
+  <section class="phase2">
+    <div class="heading-section">
+      <h2>OUR STUDY TRACKS</h2>
+      <p>We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics</p>
+    </div>
+    <div class="topics">
+      <div class="study-topic">
+        <img src="img/vision.png" alt="illustration image">
+        <h3>THE VISION</h3>
+        <p>Allow each and every person to learn through, Thinking and developing the ability to create</p>
+      </div>
+      <div class="study-topic">
+        <img src="img/mission.png" alt="illustration image">
+        <h3>THE MISSION</h3>
+        <p>Allow each and every person to learn through, Thinking and developing the ability to create</p>
+      </div>
+      <div class="study-topic">
+        <img src="img/suggest.png" alt="illustration image">
+        <h3>WER SUGGEST</h3>
+        <p>Allow each and every person to learn through, Thinking and developing the ability to create</p>
+      </div>
+      <div class="study-topic">
+        <img src="img/strive.png" alt="illustration image">
+        <h3>WE STRIVE</h3>
+        <p>Allow each and every person to learn through, Thinking and developing the ability to create</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="phase3">
+    <div class="heading-section">
+      <h2>OUR ROBOTS</h2>
+    </div>
+    <div class="phase3-images">
+      <img src="img/phase3-img1.png" alt="kids playing">
+      <img src="img/phase3-img2.png" alt="robotic">
+      <img src="img/phase3-img3.png" alt="Kid playing with a robotic">
+    </div>
+  </section>
+
+  <section class="phase4">
+    <div class="heading-section">
+      <h2>HOW IT WORKS</h2>
+    </div>
+    <div class="topics">
+      <div class="work-topic">
+        <div class="ball" data-number="4">
+          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+        </div>
+        <p>Assemble and program the robot</p>
+      </div>
+      <div class="work-topic">
+        <div class="ball" data-number="3">
+          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+        </div>
+        <p>Assemble and program the robot</p>
+      </div>
+      <div class="work-topic">
+        <div class="ball" data-number="2">
+          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+        </div>
+        <p>Assemble and program the robot</p>
+      </div>
+      <div class="work-topic">
+        <div class="ball" data-number="1">
+          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+        </div>
+        <p>Assemble and program the robot</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="phase5">
+    <div class="phase5-images">
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR36fOe4QqRvQyKEOILmSnI4vxYXXeMJ0B9d-aSBO4QU0MbWyDt" alt="kids playing">
+    </div>
+    <div class="phase5-text">
+      <p>What will you learn and improve while developing our robots?</p>
+      <div class="phase5-topic-field">
+        <div>
+          <div class="phase5-topics">
+            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <p>Input output in programming language1</p>
+          </div>
+          <div class="phase5-topics">
+            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <p>Input output in programming language2</p>
+          </div>
+        </div>
+        <div>
+          <div class="phase5-topics">
+            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <p>Input output in programming language3</p>
+          </div>
+          <div class="phase5-topics">
+            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <p>Input output in programming language4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,4 +1,4 @@
-fetch('https://api.giphy.com/v1/gifs/random?api_key=bwBAcjO5j2Cec47TG7flBCn7Gdw57Fo8&tag=sea+otter&rating=g')
+fetch('https://api.giphy.com/v1/gifs/randomm?api_key=bwBAcjO5j2Cec47TG7flBCn7Gdw57Fo8&tag=sea+otter&rating=g')
 .then(function(response) {
 	if (response.status == 200) {
 		return response.json();

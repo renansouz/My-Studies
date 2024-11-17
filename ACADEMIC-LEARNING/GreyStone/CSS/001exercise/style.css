@@ -1,0 +1,23 @@
+* {
+  color: #ccc;
+}
+
+body {
+  background-color: #1b1b1b;
+}
+
+nav {
+  background-color: rgb(135, 221, 192);
+  border: 1px solid white;
+}
+
+li, a{
+  font-weight: bold;
+  font-size: 15px;
+  color: red;
+}
+
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+}
