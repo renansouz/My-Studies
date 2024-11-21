@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>isso ai</title>
   <style>
+    body {
+      background-color: aquamarine;
+    }
     .conic {
       height: 30rem;
       background: conic-gradient(
@@ -17,11 +20,28 @@
       red 360deg
     );}
     .shadow {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       margin: 5rem;
       height: 30rem;
-      background-color: aquamarine;
+      background-color: rgb(255, 255, 255);
       border-radius: 10px;
-      box-shadow: 10px 10px 10px black, -10px -10px 10px black;
+      box-shadow: 0 10px 1px black ;
+    }
+    .circle{
+      color: white;
+      font-size: 3rem;
+      font-family: cursive;
+      height: 20px;
+      width: 20px;
+      background-color: orange;
+      padding: 3rem;
+      border-radius: 100rem;
+    }
+    .shadow p {
+      width: 100px;
     }
   </style>
 </head>
@@ -41,7 +61,8 @@
   <div class="conic"></div>
 
   <div class="shadow">
-
+    <div class="circle">""</div>
+    <p>if you dont know where are you going, any road will get you there</p>
   </div>
 </body>
 </html>

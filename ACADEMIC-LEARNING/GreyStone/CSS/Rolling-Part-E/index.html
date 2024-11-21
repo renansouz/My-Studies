@@ -12,7 +12,7 @@
       font-family: Arial;
     }
     .main {
-      background: linear-gradient(to right, #3c0166, #ba55ce);
+      background: linear-gradient(to right, #3e0959, #9e0f9f);
       color: whitesmoke;
       max-width: 100%;
       height: 100vh;
@@ -21,7 +21,7 @@
       display: flex;
       gap: 3rem;
       list-style-type: none;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
       margin-left: 10rem;
     }
     .menu li a {
@@ -31,7 +31,7 @@
       padding: 2rem 0;
     }
     .menu li a:hover {
-      color: #ba55ce;
+      color: #f157a1;
     }
     .phase1 {
       display: flex;
@@ -49,15 +49,15 @@
     }
     .btt1 {
       color: whitesmoke;
-      background-color: #ff37cd;
+      background-color: #f157a1;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 20px;
     }
     .btt2 {
-      color: #ff37cd;
+      color: #f157a1;
       background: none;
-      border: 1px solid #ff37cd;
+      border: 1px solid #f157a1;
       padding: 0.5rem 1rem;
       border-radius: 20px;
     }
@@ -87,11 +87,12 @@
       padding: 5rem 5rem;
       gap: 2.5rem;
     }
-    .phase2 h2, h3, .phase3 h2, h3, .phase4 h2, h3  {
-      color: #a345b6;
+    .phase2 h2, h3, .phase3 h2, h3, .phase4 h2, h3, .phase6 h2  {
+      color: #904991;
+      font-weight: 500;
       margin-bottom: 1rem;
     }
-    .phase2 h2::after, .phase3 h2::after, .phase4 h2::after {
+    .phase2 h2::after, .phase3 h2::after, .phase4 h2::after, .phase6 h2::after {
       content: '';
       display: block;
       width: 70px; 
@@ -118,7 +119,7 @@
     }
 
     .phase3 {
-      background: linear-gradient(to top, #3c0166, #ffffff);
+      background: linear-gradient(to top, #3e0959, #ffffff);
     }
     .phase3-images {
       width: 100%;
@@ -146,12 +147,12 @@
     }
     .work-topic img {
       margin-top: 1rem;
-      width: 6rem;
+      width: 4.8rem;
     }
     .ball {
-      background: linear-gradient(to top, #ff37cd, #a345b6);
-      width: 10rem;
-      height: 10rem;
+      background: linear-gradient(to top, #f1008b, #a70a96);
+      width: 9rem;
+      height: 9rem;
       border-radius: 100rem;
       box-shadow: 0 0 100px rgb(177, 177, 177);
     }
@@ -166,7 +167,7 @@
    }
 
    .phase5 {
-      background: linear-gradient(to top, #a345b6, #3c0166);
+      background: linear-gradient(to top, #a345b6, #3e0959);
       display: flex;
       justify-content: space-evenly;
       padding: 4rem 0;
@@ -196,6 +197,54 @@
     .phase5-topics img{      
       width: 4rem;
     }
+    .phase6 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 0;
+      background-color: #f1efeb;
+    }
+    .phase6 h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    h5{
+      color: #92488d;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+    .recommendations {
+      display: flex;
+      gap: 2rem;
+    }
+    .reccomend {
+      position: relative;
+      width: 23rem;
+      border-radius: 20px;
+      padding: 1rem;
+      background-color: white;
+      border: 2px solid #dbccba;
+      text-align: right;
+    }
+    .reccomend::before {
+      content: "";
+      background-image: url(img/quotationmark.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: -5%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -223,10 +272,11 @@
       </div>
     </section>
   </div>
+
   <section class="phase2">
     <div class="heading-section">
       <h2>OUR STUDY TRACKS</h2>
-      <p>We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics</p>
+      <p>We will tell you about our courses in teh field of robotics We will tell you about our courses in teh field of robotics We will tell you about our courses in ll tell you about our cocs</p>
     </div>
     <div class="topics">
       <div class="study-topic">
@@ -241,7 +291,7 @@
       </div>
       <div class="study-topic">
         <img src="img/suggest.png" alt="illustration image">
-        <h3>WER SUGGEST</h3>
+        <h3>WE SUGGEST</h3>
         <p>Allow each and every person to learn through, Thinking and developing the ability to create</p>
       </div>
       <div class="study-topic">
@@ -270,25 +320,25 @@
     <div class="topics">
       <div class="work-topic">
         <div class="ball" data-number="4">
-          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+          <img src="https://img.icons8.com/ios7/600/FFFFFF/home.png" alt="">
         </div>
         <p>Assemble and program the robot</p>
       </div>
       <div class="work-topic">
         <div class="ball" data-number="3">
-          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+          <img src="https://img.icons8.com/ios7/600/FFFFFF/home.png" alt="">
         </div>
         <p>Assemble and program the robot</p>
       </div>
       <div class="work-topic">
         <div class="ball" data-number="2">
-          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+          <img src="https://img.icons8.com/ios7/600/FFFFFF/home.png" alt="">
         </div>
         <p>Assemble and program the robot</p>
       </div>
       <div class="work-topic">
         <div class="ball" data-number="1">
-          <img src="https://icons.veryicon.com/png/o/business/bank-related-2/cross-border-foreign-currency-fund-pool.png" alt="">
+          <img src="https://img.icons8.com/ios7/600/FFFFFF/home.png" alt="">
         </div>
         <p>Assemble and program the robot</p>
       </div>
@@ -304,23 +354,53 @@
       <div class="phase5-topic-field">
         <div>
           <div class="phase5-topics">
-            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <img src="https://images.vexels.com/content/199980/preview/internet-browsing-icon-stroke-pink-0251a9.png" alt="">
             <p>Input output in programming language1</p>
           </div>
           <div class="phase5-topics">
-            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <img src="https://images.vexels.com/content/199980/preview/internet-browsing-icon-stroke-pink-0251a9.png" alt="">
             <p>Input output in programming language2</p>
           </div>
         </div>
         <div>
           <div class="phase5-topics">
-            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <img src="https://images.vexels.com/content/199980/preview/internet-browsing-icon-stroke-pink-0251a9.png" alt="">
             <p>Input output in programming language3</p>
           </div>
           <div class="phase5-topics">
-            <img src="https://png.pngtree.com/png-vector/20220226/ourmid/pngtree-paper-element-document-paper-vector-png-image_35504660.png" alt="">
+            <img src="https://images.vexels.com/content/199980/preview/internet-browsing-icon-stroke-pink-0251a9.png" alt="">
             <p>Input output in programming language4</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="phase6">
+    <h2 class="heading-section">RECOMMMENDED</h2>
+    <div class="recommendations">
+      <div class="reccomend">
+        <h5>Robot building course</h5>
+        <p>illum inventore et cumque similique, consequuntur accusantium velit. Expedita ea repudiandae voluptatum ipsum cumque voluptates, amet, quae reiciendis tenetur necessitatibus vero facere? Nam, nesciunt inventore!</p>
+        <div class="user">
+          <img src="https://images.vexels.com/media/users/3/185261/isolated/preview/873be62e1bc5fb522c68b6cf3d7aa92a-pink-flower-large-petals-flat.png" alt="icon" height="20px" width="20px" style="border-radius: 1000rem;">
+          <p>Uzi Uzieli <br>Software Engineer</p>
+        </div>
+      </div>
+      <div class="reccomend">
+        <h5>Robot building course</h5>
+        <p> illum inventore et cumque similique, consequuntur accusantium velit. Expedita ea repudiandae voluptatum ipsum cumque voluptates, amet, quae reiciendis tenetur necessitatibus vero facere? Nam, nesciunt inventore!</p>
+        <div class="user">
+          <img src="https://images.vexels.com/media/users/3/185261/isolated/preview/873be62e1bc5fb522c68b6cf3d7aa92a-pink-flower-large-petals-flat.png" alt="icon" height="20px" width="20px" style="border-radius: 1000rem;">
+          <p>Uzi Uzieli <br>Software Engineer</p>
+        </div>
+      </div>
+      <div class="reccomend">
+        <h5>Robot building course</h5>
+        <p> illum inventore et cumque similique, consequuntur accusantium velit. Expedita ea repudiandae voluptatum ipsum cumque voluptates, amet, quae reiciendis tenetur necessitatibus vero facere? Nam, nesciunt inventore!</p>
+        <div class="user">
+          <img src="https://images.vexels.com/media/users/3/185261/isolated/preview/873be62e1bc5fb522c68b6cf3d7aa92a-pink-flower-large-petals-flat.png" alt="icon" height="20px" width="20px" style="border-radius: 1000rem;">
+          <p>Uzi Uzieli <br>Software Engineer</p>
         </div>
       </div>
     </div>
