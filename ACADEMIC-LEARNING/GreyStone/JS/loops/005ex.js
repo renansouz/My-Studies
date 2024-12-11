@@ -5,3 +5,4 @@ function displayValue() {
     console.log(element);
   }
 }
+displayValue()
