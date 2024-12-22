@@ -1,7 +1,7 @@
 function displayValue() {
-  let stdName = ["A", "B", "C", "D", "E", "F", "G"]
-  for (let i = 0; i < stdName.length; i++) {
-    const element = stdName[i];
+  let multipleData = ["A",123,'b', '455', 344,'e']
+  for (let i = 0; i < multipleData.length; i++) {
+    const element = multipleData[i];
     console.log(element);
   }
 }
