@@ -1,4 +1,14 @@
+interface Category {
+    name: string,
+    displayName: string,
+    subCategories: { name: string, displayName: string }[]
+ }
+
 class InventoryStore {
+  _categories: Category[] = [];
+  _items: InventoryItem[] = [];
+  _isInitialized: Promise<boolean>
+
   /** the inventory categories */
   get categories() {
     return this._categories;
@@ -15,10 +25,6 @@ class InventoryStore {
   }
 
   constructor() {
-    // define and initialize properties (which happen to be "private")
-    this._categories = [];
-    this._items = [];
-
     // load initial set of data
     this._isInitialized = this._load();
   }
@@ -29,7 +35,7 @@ class InventoryStore {
    * @param {string} trackingNumber the item's tracking number
    * @returns the inventory item with the given tracking number, or null
    */
-  getItem(trackingNumber) {
+  getItem(trackingNumber: string): InventoryItem {
     return this._items.find(x => x.trackingNumber === trackingNumber);
   }
 
@@ -39,7 +45,7 @@ class InventoryStore {
    * @param {InventoryItem} item the item to add to inventory
    * @returns {Promise<InventoryItem>} promise containing the updated item after it's been saved
    */
-  addItem(item) {
+  addItem(item: InventoryItem): Promise<InventoryItem> {
     const errors = this.validateItem(item);
 
     if (errors.length) {
@@ -173,6 +179,8 @@ class InventoryStore {
   }
 
   //#endregion
+
+  static instance = new InventoryStore();
 }
 
 // Create a "static" singleton instance for the entire application to use
