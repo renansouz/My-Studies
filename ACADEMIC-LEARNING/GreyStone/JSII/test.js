@@ -1,6 +1,6 @@
 max()
 
-function max() {
+function max(a, b) {
   console.log(a>b?a:b);
 }
 
