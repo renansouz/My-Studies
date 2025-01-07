@@ -1,13 +1,14 @@
 interface Category {
-    name: string,
-    displayName: string,
-    subCategories: { name: string, displayName: string }[]
- }
+  name: string,
+  displayName: string,
+  subCategories: { name: string, displayName: string }[]
+}
 
 class InventoryStore {
   _categories: Category[] = [];
   _items: InventoryItem[] = [];
-  _isInitialized: Promise<boolean>
+  _isInitialized: Promise<boolean>;
+
 
   /** the inventory categories */
   get categories() {
@@ -180,11 +181,10 @@ class InventoryStore {
 
   //#endregion
 
+  // Create a "static" singleton instance for the entire application to use
   static instance = new InventoryStore();
 }
 
-// Create a "static" singleton instance for the entire application to use
-InventoryStore.instance = new InventoryStore();
 
 // Expose the singleton in its own variable
 const inventoryStore = InventoryStore.instance;
