@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>friends</title>
+</head>
+<body>
+  <h1>please add friends</h1>
+  <input type="text" name="friends" id="friend" placeholder="add friends">
+  <button onclick="addFriend()">Add friend</button>
+  <ul id="myFriends"></ul>
+</body>
+<script>
+  function addFriend() {
+    let name = document.getElementById('friend').value
+    let ul = document.querySelector("ul")
+    let li = document.createElement("li")
+    li.innerText = name
+    ul.appendChild(li)
+
+    document.getElementById('friend').value = '';
+  }
+</script>
+</html>
