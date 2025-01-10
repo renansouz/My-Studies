@@ -7,6 +7,9 @@ body {
   display: flex;
   justify-content: center;
 }
+.backGroundBody{
+  background-image: linear-gradient(to bottom, #ffff, #fff);
+}
 main {
   margin: 5rem;
   padding: 3rem;

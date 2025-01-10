@@ -1,6 +1,7 @@
 var arr = ["images/brasil.jpg", "images/canada.webp", "images/indonesia.jpg", "images/korea.png"];
 var arrWord = ["brasil", "canada" ,"indonesia", "korea"];
 var counter = 1;
+var usedImages = []
 i = selectRandomImage();
 var score = 0;
 
@@ -31,10 +32,14 @@ function gameOver() {
 
 function selectRandomImage() {
   document.querySelector(".countQuestion").textContent= "Question number " + counter;
-    let index = Math.floor(Math.random() * arr.length);
-    console.log(index);
+  let index;
+  do {
+    index = Math.floor(Math.random() * arr.length);
+  } while (usedImages.includes(index)); 
+  usedImages.push(index); 
+  
   document.getElementById("imgToGuess").src = arr[index];
-    return index;
+  return index;
 }
 
 function play() {
@@ -76,8 +81,9 @@ function play() {
   document.querySelector(".playAgain").addEventListener('click', reset);
 
 function reset() {
-  document.body.classList.add('backGroundBody');
-  counter = 0;
+  // document.body.classList.add('backGroundBody');
+  counter = 1;
+  usedImages = []
   i = selectRandomImage();
   score = 0;
   document.querySelector(".score").textContent = 0;
