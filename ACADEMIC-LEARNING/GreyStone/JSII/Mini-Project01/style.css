@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+main {
+  margin: 5rem;
+  padding: 3rem;
+  height: 40rem;
+  width: 50rem;
+  background-image: linear-gradient(to bottom, #27150c, #33190c);
+}
+h1, .countQuestion {
+  text-align: center;
+  color: white;
+}
+.countQuestion {
+  margin: 2rem 0;
+}
+h2 {
+  margin: 1rem 0;
+}
+.container {
+  background-color: #de840f
+}
+.input {
+  float: left;
+  display: block;
+  width: 30%;
+}
+.output {
+  float :left;
+  display: block;
+  color: white;
+  width: 30%;
+}
+.imgGuess img {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  height: 150px;
+  background-image: linear-gradient(red, yellow);
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 10px ;
+}
+
+.playAgain {
+  float: left;
+  width: 100%;
+  display: block;
+  margin-left: 45%;
+}
+
+.imgGuess {
+  float: left;
+  display: block;
+  color: white;
+  width: 60%;
+  margin-right: 3rem;
+}
+.playAgain button{
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  background-image: linear-gradient(rgb(9, 255, 0), yellow);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height:60px ;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.hidden {
+  display: none;
+}
