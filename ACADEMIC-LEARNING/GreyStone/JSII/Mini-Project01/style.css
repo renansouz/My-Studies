@@ -7,9 +7,6 @@ body {
   display: flex;
   justify-content: center;
 }
-.backGroundBody{
-  background-image: linear-gradient(to bottom, #ffff, #fff);
-}
 main {
   margin: 5rem;
   padding: 3rem;
@@ -26,9 +23,6 @@ h1, .countQuestion {
 }
 h2 {
   margin: 1rem 0;
-}
-.container {
-  background-color: #de840f
 }
 .input {
   float: left;

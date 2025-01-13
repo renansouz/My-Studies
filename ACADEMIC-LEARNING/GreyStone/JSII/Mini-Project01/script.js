@@ -11,14 +11,11 @@ const container = document.querySelector('main');
 
 const showbtnPlayAgain = function() {
   btnPlayAgain.classList.remove('hidden');
-  container.classList.add('container');
-  container.style.backgroundColor = '#de840f';
 };
   
 const hiddenbtnPlayAgain = function() {
   btnPlayAgain.classList.add('hidden');
-  container.classList.remove('container');
-  container.style.backgroundColor = ''; 
+  container.style.backgroundImage = 'linear-gradient(to bottom, #27150c, #33190c)'; 
 };
 
 function gameOver() {
@@ -28,6 +25,7 @@ function gameOver() {
   }
   document.body.classList.remove('backGroundBody');
   showbtnPlayAgain();
+  container.style.backgroundImage = 'linear-gradient(to bottom, #de840f, #de840f)'; 
 }
 
 function selectRandomImage() {
@@ -81,7 +79,6 @@ function play() {
   document.querySelector(".playAgain").addEventListener('click', reset);
 
 function reset() {
-  // document.body.classList.add('backGroundBody');
   counter = 1;
   usedImages = []
   i = selectRandomImage();
