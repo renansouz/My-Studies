@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>timer</title>
+</head>
+<body>
+  <span id="timer">0</span>
+</body>
+<script>
+  let span = document.getElementById('timer')
+  let counter = 0;
+
+  let timer = () => {
+    counter++;
+    if (counter === 100) {
+      return false
+    }
+    span.innerText = counter;
+    
+  }
+  setInterval(timer, 1000)
+</script>
+</html>
