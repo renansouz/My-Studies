@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+<img src="" class="cat" width="10px" height="10px"/>
+<button onclick="details()">click</button>
+
+</body>
+<script>
+  function details() {
+    const img = document.querySelector(".cat"); 
+    // img.src is asynchronous
+    img.src = "cat.jpeg";
+    img.addEventListener('load', () => {
+       img.classList.add("someclass");
+    });
+  }
+</script>
+</html>

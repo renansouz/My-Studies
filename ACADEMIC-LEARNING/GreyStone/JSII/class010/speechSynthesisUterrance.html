@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speech Synthesis Uterrance</title>
+  <style>
+    body {
+      background-color: gainsboro;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      width: 25em;
+      height: 25em;
+      background-color: darkgrey;
+    }
+    button {
+      background: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      font-size: 1.4rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      border: 2px solid darkslategrey
+    }
+    .langs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div>
+      <input type="text" id="textInput" placeholder="Enter text to speak">
+    </div>
+    <div class="langs">
+      <button class="language-button" data-lang="zh-TW">Mandarim</button>
+      <button class="language-button" data-lang="ja-JP">Japanese</button>
+      <button class="language-button" data-lang="ko-KR">Korean</button>
+      <button class="language-button" data-lang="en-US">English</button>
+      <button class="language-button" data-lang="pt-BR">Portuguese</button>
+      <button class="language-button" data-lang="es-ES">Spanish</button>
+    </div>
+  </main>
+  <script>
+    const textInput = document.getElementById('textInput');
+    const buttons = document.querySelectorAll('.language-button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const text = textInput.value;
+        if (text) {
+          const lang = button.getAttribute('data-lang');
+          const speech = new SpeechSynthesisUtterance(text);
+          speech.lang = lang;
+          speech.onend = () => console.log(`Finished speaking in ${lang}`);
+          speech.onerror = err => console.error('Speech error:', err);
+          window.speechSynthesis.speak(speech);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
