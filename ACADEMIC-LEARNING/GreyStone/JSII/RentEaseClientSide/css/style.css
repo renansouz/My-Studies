@@ -6,32 +6,42 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+body {
+  background-color: var(--background);
+}
 :root {
   --main-color: #8EB486;
   --main-color-hover: #85aa7e;
   --secondary-color:#997C70 ;
   --background: #FDF7F4;
-  --color-text: #685752
+  --color-text: #5e4f4a;
 }
 
 #header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: var(--background);
-  background-color: var(--secondary-color);
-  padding: .3rem 5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
 }
-#header nav a {
+.header1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text);
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 1rem 3rem;
+}
+.header2{
+  background-color: var(--secondary-color);
+  padding: .8rem 5rem;
+}
+.header2 nav a {
   text-decoration: none;
   color: var(--background);
-  margin: 1rem;
+  margin: 1rem 2rem;
+  font-size: 1.2rem;
   font-weight: 200;
 }
 #header nav a:hover {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--background);
 }
 .signInBtn {
   background-color: var(--main-color);

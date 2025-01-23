@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>SignUp Page</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -23,14 +23,14 @@
     :root {
       --main-color: #8EB486;
       --main-color-hover: #85aa7e;
-      --secondary-color:#997C70 ;
+      --secondary-color: #997C70;
       --background: #FDF7F4;
       --color-text: #5e4f4a;
     }
     form {
+      margin-bottom: 5rem;
       font-size: .9rem;
       width: 400px;
-      height: 500px;
       border: 1px solid var(--color-text);
       background-color: #f1ecea;
       display: flex;
@@ -58,18 +58,8 @@
     .inputs input:hover, .inputs input:focus {
       border: 1px solid var(--main-color-hover);
     }
-    .rememberMe {
-      display: flex;
-      flex-direction: row;
-      width: 80%;
-      gap: .5rem;
-      margin: 2rem 0;
-    }
-    .rememberMe input {
-      width: 18px;
-      accent-color: var(--main-color);
-    }
     button {
+      margin: 2rem 0;
       width: 80%;
       background-color: var(--main-color);
       border: 1px solid var(--main-color-hover);
@@ -82,6 +72,10 @@
       cursor: pointer;
       background-color: var(--main-color-hover);
     }
+
+    input[type="date"] {
+    color: inherit;  
+  }
   </style>
 </head>
 <body>
@@ -90,8 +84,21 @@
       <img width="90px" height="90px" src="img/logo.png" alt="logo" style="margin-top: 2rem;">
       <p style="font-size: 2rem; font-weight: 700;margin-top: 2rem;">FlatFinder</p>
     </div>
-    <p>Don't have an account? <a href="signUp.html">Sign up</a></p>
+    <p>Already have an account? <a href="login.html">Log in</a></p>
+    <p style="font-size: 2rem; font-weight: 700;margin-top: 2rem;">SignUp</p>
 
+    <div class="inputs">
+      <span>First Name</span>
+      <input type="text" placeholder="Enter your first name">
+    </div>
+    <div class="inputs">
+      <span>Last Name</span>
+      <input type="text" placeholder="Enter your last name">
+    </div>
+    <div class="inputs">
+      <span>Birth Date</span>
+      <input type="date">
+    </div>
     <div class="inputs">
       <span>Email address</span>
       <input type="email" placeholder="email@example.com">
@@ -100,11 +107,11 @@
       <span>Password</span>
       <input type="password" placeholder="Enter your password">
     </div>
-    <div class="rememberMe">
-      <input type="checkbox" name="remember" id="rememberMe">
-      <p>Remember me</p>
+    <div class="inputs">
+      <span>Confirm Password</span>
+      <input type="password" placeholder="Confirm your password">
     </div>
-    <button>Log In</button>
+    <button>Register</button>
   </form>
 </body>
 </html>
