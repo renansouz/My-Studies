@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sort</title>
+</head>
+<body>
+  <p>insert different numbers separated by commas</p>
+  <input type="text" name="nums" id="nums" placeholder="Ex. 10, 8, 3, 90, 41, 4">
+  <button id="bubbleBtn">Bubble Sort</button>
+  <button id="selectionBtn">Selection Sort</button>
+  <div id="container"></div>
+  
+  <script>
+    let selectionSort = arr => {
+      // Loop through each element 
+      for (let i = 0; i < arr.length - 1; i++) {
+        let min = i; // Assume the current index holds the smallest value
+
+        // Check the rest of the array to find a smaller value
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[j] < arr[min]) 
+            min = j; // Update the position of the smallest value
+        }
+
+        // Swap the smallest value with the current element
+        const temp = arr[i]; 
+        arr[i] = arr[min];
+        arr[min] = temp;
+      }
+
+      console.log(arr); 
+      return arr; // Return the sorted array
+   }
+
+    let bubbleSort= arr => {
+      let swapped = false
+
+      while(!swapped) {
+        swapped = true
+
+        for(let i = 0; i < arr.length; i++) {
+          if(arr[i] > arr[i+1]) {
+            const temp = arr[i]
+            arr[i] = arr[i + 1]
+            arr[i+1] = temp
+            swapped = false
+          }
+        }
+      }
+      console.log(arr);
+      return arr
+    }
+
+    let text = document.getElementById("nums")
+    let container = document.getElementById("container")
+    let bubbleBtn = document.getElementById("bubbleBtn")
+    let selectionBtn = document.getElementById("selectionBtn")
+
+    function parseInput(input) {
+      const strArray = input.split(",").map(item => item.trim());
+      const numArray = strArray.map(Number).filter(n => !isNaN(n)); 
+      return numArray;
+    }
+
+    bubbleBtn.addEventListener("click", () => {
+      if (text.value === "") {
+        container.innerText = "Please insert some numbers.";
+      } else {
+        const numbers = parseInput(text.value);
+        if (numbers.length === 0) {
+          container.innerText = "Invalid input. Make sure to use numbers separated by commas.";
+        } else {
+          const sortedArray = bubbleSort(numbers);
+          container.innerText = `Bubble Sorted: ${sortedArray.join(", ")}`;
+        }
+      }
+    });
+
+    selectionBtn.addEventListener("click", () => {
+      if (text.value === "") {
+        container.innerText = "Please insert some numbers.";
+      } else {
+        const numbers = parseInput(text.value);
+        if (numbers.length === 0) {
+          container.innerText = "Invalid input. Make sure to use numbers separated by commas.";
+        } else {
+          const sortedArray = selectionSort(numbers);
+          container.innerText = `Selection Sorted: ${sortedArray.join(", ")}`;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
