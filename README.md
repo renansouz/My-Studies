@@ -1,6 +1,6 @@
 # My Studies 📚💻
 
-Welcome to my study repository! Here, I share my journey in Full-Stack JavaScript development, documenting my progress and sharing knowledge with fellow developers
+Welcome to my study repository! Here, I share my journey in Full-Stack JavaScript development, documenting my progress and sharing knowledge with fellow developers.
  
 ## About
 
