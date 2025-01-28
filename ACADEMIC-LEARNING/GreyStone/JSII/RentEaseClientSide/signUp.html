@@ -14,7 +14,7 @@
       font-family: "Poppins", sans-serif;
     }
     body {
-      background-color: var(--background);
+      background-color: #f1ecea;
       color: var(--color-text);
       display: flex;
       justify-content: center;
@@ -32,7 +32,7 @@
       font-size: .9rem;
       width: 400px;
       border: 1px solid var(--color-text);
-      background-color: #f1ecea;
+      background-color: var(--background);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -76,10 +76,15 @@
     input[type="date"] {
     color: inherit;  
   }
+
+  #error {
+    margin-top: 1rem;
+    color: red;
+  }
   </style>
 </head>
 <body>
-  <form action="">
+  <form id="signupForm">
     <div style="display: flex; align-items: center;">
       <img width="90px" height="90px" src="img/logo.png" alt="logo" style="margin-top: 2rem;">
       <p style="font-size: 2rem; font-weight: 700;margin-top: 2rem;">FlatFinder</p>
@@ -89,29 +94,33 @@
 
     <div class="inputs">
       <span>First Name</span>
-      <input type="text" placeholder="Enter your first name">
+      <input type="text" id="firstName" placeholder="Enter your first name"  required>
     </div>
     <div class="inputs">
       <span>Last Name</span>
-      <input type="text" placeholder="Enter your last name">
+      <input type="text" id="lastName" placeholder="Enter your last name" required>
     </div>
     <div class="inputs">
       <span>Birth Date</span>
-      <input type="date">
+      <input type="date" id="birthDate" required>
     </div>
     <div class="inputs">
       <span>Email address</span>
-      <input type="email" placeholder="email@example.com">
+      <input type="email" id="email" placeholder="email@example.com" required>
     </div>
     <div class="inputs">
       <span>Password</span>
-      <input type="password" placeholder="Enter your password">
+      <input type="password" id="password" placeholder="Enter your password" required>
     </div>
     <div class="inputs">
       <span>Confirm Password</span>
-      <input type="password" placeholder="Confirm your password">
+      <input type="password" id="confimPassword" placeholder="Re-enter your password" required>
+    </div>
+    <div id="error">
+
     </div>
     <button>Register</button>
   </form>
 </body>
+<script src="signUp.js"></script>
 </html>

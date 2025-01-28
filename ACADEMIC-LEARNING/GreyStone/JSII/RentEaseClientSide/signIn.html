@@ -63,7 +63,7 @@
       flex-direction: row;
       width: 80%;
       gap: .5rem;
-      margin: 2rem 0;
+      margin: 1rem 0;
     }
     .rememberMe input {
       width: 18px;
@@ -82,10 +82,14 @@
       cursor: pointer;
       background-color: var(--main-color-hover);
     }
+    #error {
+      margin-bottom: 1rem;
+      color: red;
+    }
   </style>
 </head>
 <body>
-  <form action="">
+  <form id="loginForm">
     <div style="display: flex; align-items: center;">
       <img width="90px" height="90px" src="img/logo.png" alt="logo" style="margin-top: 2rem;">
       <p style="font-size: 2rem; font-weight: 700;margin-top: 2rem;">FlatFinder</p>
@@ -94,17 +98,19 @@
 
     <div class="inputs">
       <span>Email address</span>
-      <input type="email" placeholder="email@example.com">
+      <input type="email" id="loginEmail" placeholder="email@example.com">
     </div>
     <div class="inputs">
       <span>Password</span>
-      <input type="password" placeholder="Enter your password">
+      <input type="password" id="loginPassword" placeholder="Enter your password">
     </div>
     <div class="rememberMe">
       <input type="checkbox" name="remember" id="rememberMe">
       <p>Remember me</p>
     </div>
+    <div id="error"></div>
     <button>Log In</button>
   </form>
 </body>
+<script src="signIn.js"></script>
 </html>

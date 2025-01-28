@@ -46,6 +46,7 @@ body {
 .signInBtn {
   background-color: var(--main-color);
   border: 1px solid var(--main-color-hover);
+  color: var(--background);
   padding: .4rem 1rem;
   font-size: 1.1rem;
   border-radius: .87rem;
