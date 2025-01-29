@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <button id="helloButton">Click me to say Hello!</button>
+  <div id="message" style="display:none; margin-top: 10px;"></div>
+
+  <script>
+    $(document).ready(function(){
+      $('#helloButton').click(function() {
+        $('#message').text('Hello, World!').fadeIn()
+      })
+    })
+  </script>
+
+</body>
+</html>
