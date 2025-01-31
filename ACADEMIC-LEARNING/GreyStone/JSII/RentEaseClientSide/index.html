@@ -9,17 +9,10 @@
 </head>
 <body>
   <header id="header">
-    <!-- TODO:
-    Header
-• Hello - User Full Name
-• Log out Button
-• Company Logo
-• A menu for all pages -->
-
     <div class="header1">
       <img src="img/logo.png" alt="logo" width="80px" height="80px">
-      <p>Welcome to FlatFinder</p>
-      <button onclick="window.location.href='signIn.html'" class="signInBtn">Sign In</button>
+      <p id="welcomeMessage">Welcome Fulano</p>
+      <button onclick="logout()" class="logOutBtn">Log out</button>
     </div>
     <div class="header2">
       <nav>
@@ -30,4 +23,21 @@
     </div>
   </header>
 </body>
+<script src="index.js"></script>
+<script>
+ const logout = () => {
+  localStorage.removeItem('currentUser')
+  sessionStorage.removeItem('currentUser')
+  window.location.href = 'signIn.html'
+}
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser'));
+
+  if (!currentUser) {
+    window.location.href = 'signIn.html'; 
+    
+  } else {
+    document.getElementById('welcomeMessage').textContent = `Hello, ${currentUser.firstName + ' ' + currentUser.lastName}! `;
+  }
+</script>
 </html>

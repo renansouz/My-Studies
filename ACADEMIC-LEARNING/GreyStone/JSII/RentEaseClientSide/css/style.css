@@ -43,15 +43,15 @@ body {
 #header nav a:hover {
   border-bottom: 1px solid var(--background);
 }
-.signInBtn {
-  background-color: var(--main-color);
-  border: 1px solid var(--main-color-hover);
+.logOutBtn {
+  background-color: #d40808;
+  border: 1px solid #bb0909;
   color: var(--background);
   padding: .4rem 1rem;
   font-size: 1.1rem;
   border-radius: .87rem;
 }
-.signInBtn:hover {
+.logOutBtn:hover {
   cursor: pointer;
-  background-color: var(--main-color-hover);
+  background-color: #bb0909
 }
