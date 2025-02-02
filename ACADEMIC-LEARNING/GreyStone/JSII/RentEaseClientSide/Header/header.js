@@ -38,7 +38,7 @@ const logout = () => {
 const currentUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser'));
 
 if (!currentUser) {
-  window.location.href = '../pages/SignIn/'; 
+  window.location.href = '../SignIn/'; 
 } else {
   document.getElementById('welcomeMessage').textContent = `👋Hello, ${currentUser.firstName + ' ' + currentUser.lastName}! `;
 }

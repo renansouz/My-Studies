@@ -98,11 +98,20 @@
     <p>Don't have an account? <a href="../SignUp/">Sign up</a></p>
 
     <div class="inputs">
-      <span>Email address</span>
+      <div style="display: flex; align-items: center;  margin-bottom: .5rem; gap: .3rem;">
+        <img src="../../img/profile-user.png" alt="password icon" width="20px">
+        <label>Email address</label>
+      </div>
       <input type="email" id="loginEmail" placeholder="email@example.com">
     </div>
     <div class="inputs">
-      <span>Password</span>
+      <div style="display: flex; justify-content: space-between; margin-bottom: .5rem;">
+        <div style="display: flex; align-items: center; gap: .3rem;">
+          <img src="../../img/passwordIcon.png" alt="password icon" width="20px">
+          <label>Password</label>
+        </div>
+        <a href="forgotPassword.html">Forgot password?</a>
+      </div>
       <input type="password" id="loginPassword" placeholder="Enter your password">
     </div>
     <div class="rememberMe">
