@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Update</title>
+  <link rel="stylesheet" href="../../Header/header.css">
+  <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
+</head>
+<body>
+  <div id="headerDiv"></div>
+  <form id="updateForm">
+    <h2>Update Your Profile</h2>
+
+    <div class="inputs">
+      <span>First Name</span>
+      <input type="text" id="firstName" required>
+    </div>
+    <div class="inputs">
+      <span>Last Name</span>
+      <input type="text" id="lastName" required>
+    </div>
+    <div class="inputs">
+      <span>Birth Date</span>
+      <input type="date" id="birthDate" required>
+    </div>
+    <div class="inputs">
+      <span>Email address</span>
+      <input type="email" id="email" disabled>
+    </div>
+    <div class="inputs">
+      <span>New Password (optional)</span>
+      <input type="password" id="password" placeholder="Enter new password">
+    </div>
+    <div class="inputs">
+      <span>Confirm New Password</span>
+      <input type="password" id="confirmPassword" placeholder="Re-enter new password">
+    </div>
+    
+    <div id="error"></div>
+    <button type="submit">Update Profile</button>
+  </form>
+</body>
+<script src="../../Header/header.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser'));
+    
+    if (!currentUser) {
+      window.location.href = '../SignIn/'; 
+    }
+
+    document.getElementById('firstName').value = currentUser.firstName;
+    document.getElementById('lastName').value = currentUser.lastName;
+    document.getElementById('birthDate').value = currentUser.birthDate;
+    document.getElementById('email').value = currentUser.email; 
+
+    document.getElementById('updateForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const birthDate = document.getElementById('birthDate').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const errorDiv = document.getElementById('error');
+
+      if (password && password !== confirmPassword) {
+        errorDiv.textContent = "Passwords do not match!";
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const userIndex = users.findIndex(user => user.email === currentUser.email);
+
+      if (userIndex !== -1) {
+        users[userIndex].firstName = firstName;
+        users[userIndex].lastName = lastName;
+        users[userIndex].birthDate = birthDate;
+        if (password) users[userIndex].password = password; 
+
+        localStorage.setItem('users', JSON.stringify(users));
+
+        localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+
+        alert("Profile updated successfully!");
+        window.location.href = '../Home/';
+      } else {
+        alert("Error updating profile.");
+      }
+    });
+  });
+</script>
+</html>

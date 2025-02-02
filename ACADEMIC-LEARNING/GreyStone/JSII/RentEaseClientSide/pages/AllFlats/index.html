@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Flats - RentEase</title>
+  <link rel="stylesheet" href="../../Header/header.css">
+  <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: var(--background);
+}
+
+/* Filters Section */
+.filters {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters select,
+.filters input {
+  padding: 5px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  background-color: var(--background);
+  color: var(--color-text);
+}
+
+.filters select:focus,
+.filters input:focus {
+  outline: none;
+  border-color: var(--main-color);
+}
+
+/* Flats Grid */
+.flats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.flat-card {
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.flat-card:hover {
+  transform: translateY(-5px);
+}
+
+.flat-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.flat-details {
+  padding: 15px;
+}
+
+.flat-details h3 {
+  margin: 0 0 10px;
+  color: var(--main-color);
+}
+
+.flat-details p {
+  margin: 5px 0;
+}
+
+.favourite-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.favourite-btn:hover {
+  background-color: var(--main-color-hover);
+}
+</style>
+<body>
+  <div id="headerDiv"></div>
+
+  <main>
+    <section class="filters">
+      <select id="city-filter">
+        <option value="">Select City</option>
+        <option value="New York">New York</option>
+        <option value="Los Angeles">Los Angeles</option>
+      </select>
+      <input type="number" id="min-price" placeholder="Min Price">
+      <input type="number" id="max-price" placeholder="Max Price">
+      <input type="number" id="min-area" placeholder="Min Area Size">
+      <input type="number" id="max-area" placeholder="Max Area Size">
+      <select id="sort-by">
+        <option value="">Sort By</option>
+        <option value="city">City</option>
+        <option value="price">Price</option>
+        <option value="area">Area Size</option>
+      </select>
+    </section>
+
+    <div class="flats-grid" id="flats-grid">
+    </div>
+  </main>
+</body>
+<script>
+  async function fetchFlats() {
+    try {
+      const response = await fetch("../../flats.json"); 
+      const flats = await response.json();
+      displayFlats(flats);
+    } catch (error) {
+      console.error("Error fetching flats:", error);
+    }
+  }
+
+  function displayFlats(flats) {
+    const flatsGrid = document.getElementById("flats-grid");
+    flatsGrid.innerHTML = ""; 
+
+    const fallbackImage = "https://dummyimage.com/300x200/FfF9F4/222222&text=RentEase"; 
+
+    flats.forEach((flat) => {
+      const flatCard = document.createElement("div");
+      flatCard.className = "flat-card";
+
+      const imageUrl = flat.image || fallbackImage;
+
+      flatCard.innerHTML = `
+        <img src="${imageUrl}" alt="Flat Image" class="flat-image">
+        <div class="flat-details">
+          <h3>${flat.city}, ${flat.streetName}</h3>
+          <p><strong>Street Number:</strong> ${flat.streetNumber}</p>
+          <p><strong>Area Size:</strong> ${flat.areaSize} sqft</p>
+          <p><strong>Has AC:</strong> ${flat.hasAC ? "Yes" : "No"}</p>
+          <p><strong>Year Built:</strong> ${flat.yearBuilt}</p>
+          <p><strong>Rent Price:</strong> $${flat.rentPrice}</p>
+          <p><strong>Date Available:</strong> ${flat.dateAvailable}</p>
+          <button class="favourite-btn">★</button>
+        </div>
+      `;
+
+      flatsGrid.appendChild(flatCard);
+    });
+  }
+
+  fetchFlats();
+</script>
+<script src="../../Header/header.js"></script>
+</html>

@@ -18,7 +18,7 @@ loginForm.addEventListener('submit', function(event){
     } else [
       sessionStorage.setItem('currentUser', JSON.stringify(user))
     ]
-    window.location.href = 'index.html'
+    window.location.href = '../Home/'
   } else {
     divError.innerHTML= '<p>Invalid email or password.<br> Please try again or sign up</p>'
   }
