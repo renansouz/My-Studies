@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const loggedInUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser'));
+
+  if (loggedInUser) {
+    window.location.href = '../Home/'; 
+  }
+});
+
 const signupForm = document.getElementById('signupForm')
 
 signupForm.addEventListener('submit', function(event){
@@ -64,5 +72,5 @@ signupForm.addEventListener('submit', function(event){
   localStorage.setItem('users', JSON.stringify(users));
 
   alert('Account created successfully! Please log in.');
-  window.location.href = 'signIn.html';
+  window.location.href = '../SignIn/';
 })

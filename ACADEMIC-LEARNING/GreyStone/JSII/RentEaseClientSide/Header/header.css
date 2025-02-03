@@ -30,12 +30,12 @@ body {
   color: var(--color-text);
   font-weight: 600;
   margin: 1rem;
-  padding: 10px;
+  padding: 0 10px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 #header div {
-  width: 20rem;
+  width: 15rem;
 }
 #header nav a:hover {
   border-bottom: 1px solid var(--color-text);
@@ -58,7 +58,7 @@ nav a {
   font-weight: 600;
   background-color: #ffffff;
   color: #700c08;
-  margin-left: 13rem;
+  margin-left: 7rem;
   padding-bottom: .5rem;
 }
 .logOutBtn img{

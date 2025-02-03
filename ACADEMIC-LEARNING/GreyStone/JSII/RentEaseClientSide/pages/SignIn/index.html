@@ -4,125 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In Page</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-    body {
-      background-color: #f1ecea;
-      color: var(--color-text);
-      display: flex;
-      justify-content: center;
-      margin-top: 5%;
-    }
-    :root {
-      --main-color: #8EB486;
-      --main-color-hover: #85aa7e;
-      --secondary-color:#997C70 ;
-      --background: #FDF7F4;
-      --color-text: #5e4f4a;
-    }
-    form {
-      font-size: .9rem;
-      width: 400px;
-      background-color: var(--background);
-      height: 500px;
-      border: 1px solid var(--color-text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    form a {
-      text-decoration: none;
-      color: #6b8167;
-    }
-    form a:hover {
-      text-decoration: underline;
-    }
-    .inputs{
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      margin-top: 2rem;
-    }
-    .inputs input {
-      padding: .4rem;
-      background-color: #e9e6e5;
-      border: 1px solid var(--color-text);
-    }
-    .inputs input:hover, .inputs input:focus {
-      border: 1px solid var(--main-color-hover);
-    }
-    .rememberMe {
-      display: flex;
-      flex-direction: row;
-      width: 80%;
-      gap: .5rem;
-      margin: 1rem 0;
-    }
-    .rememberMe input {
-      width: 18px;
-      accent-color: var(--main-color);
-    }
-    button {
-      width: 80%;
-      background-color: var(--main-color);
-      border: 1px solid var(--main-color-hover);
-      color: var(--background);
-      padding: .4rem 1rem;
-      font-size: 1.1rem;
-      border-radius: .5rem;
-    }
-    button:hover {
-      cursor: pointer;
-      background-color: var(--main-color-hover);
-    }
-    #error {
-      margin-bottom: 1rem;
-      color: red;
-    }
-  </style>
 </head>
 <body>
-  <form id="loginForm">
-    <div style="display: flex; align-items: center;">
-      <img width="90px" height="90px" src="../../img/logo.png" alt="logo" style="margin-top: 2rem;">
-      <p style="font-size: 2rem; font-weight: 700;margin-top: 2rem;">RentEase</p>
-    </div>
-    <p>Don't have an account? <a href="../SignUp/">Sign up</a></p>
+  <div class="container">
+    <form id="loginForm">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img width="150px" src="../../img/logo.png" alt="logo" style="margin-top: .5rem;">
 
-    <div class="inputs">
-      <div style="display: flex; align-items: center;  margin-bottom: .5rem; gap: .3rem;">
-        <img src="../../img/profile-user.png" alt="password icon" width="20px">
-        <label>Email address</label>
       </div>
-      <input type="email" id="loginEmail" placeholder="email@example.com">
-    </div>
-    <div class="inputs">
-      <div style="display: flex; justify-content: space-between; margin-bottom: .5rem;">
-        <div style="display: flex; align-items: center; gap: .3rem;">
-          <img src="../../img/passwordIcon.png" alt="password icon" width="20px">
-          <label>Password</label>
+      <p>Don't have an account? <a href="../SignUp/">Sign up</a></p>
+      <div class="inputs">
+          <label>Email address</label>
+        <input type="email" id="loginEmail" placeholder="email@example.com">
+      </div>
+      <div class="inputs">
+        <div style="display: flex; justify-content: space-between;">
+            <label>Password</label>
+          <a href="forgotPassword.html">Forgot password?</a>
         </div>
-        <a href="forgotPassword.html">Forgot password?</a>
+        <input type="password" id="loginPassword" placeholder="Enter your password">
       </div>
-      <input type="password" id="loginPassword" placeholder="Enter your password">
-    </div>
-    <div class="rememberMe">
-        <label>
-          <input type="checkbox" id="rememberMe">
-          Remember me
-        </label>
-    </div>
-    <div id="error"></div>
-    <button>Log In</button>
-  </form>
+      <div class="rememberMe">
+          <label>
+            <input type="checkbox" id="rememberMe">
+            Remember me
+          </label>
+      </div>
+      <div id="error"></div>
+      <button>Sign In</button>
+    </form>
+    <img class="representative-img" src="../../img/signInPhoto.jpg" alt="">
+  </div>
 </body>
 <script src="signIn.js"></script>
 </html>

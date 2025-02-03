@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const loggedInUser = JSON.parse(localStorage.getItem('currentUser')) || JSON.parse(sessionStorage.getItem('currentUser'));
+
+  if (loggedInUser) {
+    window.location.href = '../Home/'; 
+  }
+});
+
 const loginForm = document.getElementById('loginForm')
 
 loginForm.addEventListener('submit', function(event){
@@ -33,6 +41,3 @@ window.addEventListener('load', function() {
   }
 })
 
-// TODO:
-// If the user forgets the password, he can reset it. But resetting the password will
-// delete all user data.
