@@ -20,7 +20,6 @@ body {
   background-color: var(--background);
 }
 
-/* Filters Section */
 .filters {
   display: flex;
   gap: 10px;
@@ -46,7 +45,6 @@ body {
   border-color: var(--main-color);
 }
 
-/* Flats Grid */
 .flats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -55,6 +53,7 @@ body {
 }
 
 .flat-card {
+  width: 312.250px;
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
@@ -127,13 +126,21 @@ body {
 </body>
 <script>
   async function fetchFlats() {
-    try {
-      const response = await fetch("../../flats.json"); 
-      const flats = await response.json();
-      displayFlats(flats);
-    } catch (error) {
-      console.error("Error fetching flats:", error);
+    let flats = [];
+
+    const storedFlats = localStorage.getItem("flats");
+    if (storedFlats) {
+      flats = JSON.parse(storedFlats);
+    } else {
+      try {
+        const response = await fetch("../../flats.json");
+        flats = await response.json();
+        localStorage.setItem("flats", JSON.stringify(flats));
+      } catch (error) {
+        console.error("Error fetching flats:", error);
+      }
     }
+    displayFlats(flats);
   }
 
   function displayFlats(flats) {
@@ -161,7 +168,6 @@ body {
           <button class="favourite-btn">★</button>
         </div>
       `;
-
       flatsGrid.appendChild(flatCard);
     });
   }

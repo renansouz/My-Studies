@@ -14,10 +14,10 @@
       margin-top: 5%;
     }
     :root {
-      --main-color: #8EB486;
+      --main-color: #80a179;
       --main-color-hover: #85aa7e;
       --secondary-color:#997C70 ;
-      --background: #FDF7F4;
+      --background: #f1e3e0;
       --color-text: #5e4f4a;
     }
     .container {

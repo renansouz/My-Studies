@@ -3,13 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Flat</title>
+  <title>New Flat - RentEase</title>
   <link rel="stylesheet" href="../../Header/header.css">
   <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--color-text);
+    }
+
+    :root {
+      --main-color: #80a179;
+      --secondary-color: #997C70;
+      --background: #f1e3e0;
+      --color-text: #5e4f4a;
+    }
+    input[type="date"] {
+      color: inherit;  
+    }
+    .new-flat-form {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--secondary-color);
+      border-radius: 4px;
+      background-color: #F8F8F8;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid var(--main-color);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+      gap: 0.5rem;
+    }
+    .checkbox-group input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--main-color);
+    }
+    
+
+    button[type="submit"] {
+      background-color: var(--main-color);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+  </style>
 </head>
 <body>
   <div id="headerDiv"></div>
-  <h1>hello new pages</h1>
+
+  <main>
+    <form class="new-flat-form" id="newFlatForm">
+      <h2 style="margin-bottom: 2rem; color: var(--main-color); text-align: center;">
+        Add New Flat
+      </h2>
+
+      <div class="form-group">
+        <label>City *</label>
+        <input type="text" id="city" required>
+      </div>
+
+      <div class="form-group">
+        <label>Street Name *</label>
+        <input type="text" id="streetName" required>
+      </div>
+
+      <div class="form-group">
+        <label>Street Number *</label>
+        <input type="number" id="streetNumber" required>
+      </div>
+
+      <div class="form-group">
+        <label>Area Size (sqft) *</label>
+        <input type="number" id="areaSize" required>
+      </div>
+
+      <div class="form-group">
+        <label>Has Air Conditioning? *</label>
+        <div class="checkbox-group">
+          <input type="checkbox" id="hasAC">
+          <label style="margin-bottom: 0;">Air Conditioning Available</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Year Built *</label>
+        <input type="number" id="yearBuilt" min="1900" max="2023" required>
+      </div>
+
+      <div class="form-group">
+        <label>Rent Price ($) *</label>
+        <input type="number" id="rentPrice" required>
+      </div>
+
+      <div class="form-group">
+        <label>Date Available *</label>
+        <input type="date" id="dateAvailable" required>
+      </div>
+
+      <div class="form-group">
+        <label>Image URL</label>
+        <input type="url" id="image" placeholder="https://example.com/image.jpg">
+      </div>
+
+      <div id="formError" class="error" style="display: none;"></div>
+      
+      <button type="submit">Save New Flat</button>
+    </form>
+  </main>
+
+  <script>
+    console.log(Date.now());
+    document.getElementById('newFlatForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const newFlat = {
+        id: Date.now(),
+        city: document.getElementById('city').value.trim(),
+        streetName: document.getElementById('streetName').value.trim(),
+        streetNumber: parseInt(document.getElementById('streetNumber').value),
+        areaSize: parseInt(document.getElementById('areaSize').value),
+        hasAC: document.getElementById('hasAC').checked,
+        yearBuilt: parseInt(document.getElementById('yearBuilt').value),
+        rentPrice: parseInt(document.getElementById('rentPrice').value),
+        dateAvailable: document.getElementById('dateAvailable').value,
+        image: document.getElementById('image').value.trim(),
+        isFavorite: true
+      };
+
+      if (!newFlat.city || !newFlat.streetName || isNaN(newFlat.streetNumber) || 
+          isNaN(newFlat.areaSize) || isNaN(newFlat.yearBuilt) || isNaN(newFlat.rentPrice) || 
+          !newFlat.dateAvailable) {
+        showError('Please fill all required fields');
+        return;
+      }
+
+      const existingFlats = JSON.parse(localStorage.getItem('flats')) || [];
+      existingFlats.push(newFlat);
+      localStorage.setItem('flats', JSON.stringify(existingFlats));
+
+      window.location.href = '../AllFlats/';
+    });
+
+    function showError(message) {
+      const errorDiv = document.getElementById('formError');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+      setTimeout(() => errorDiv.style.display = 'none', 3000);
+    }
+  </script>
+  <script src="../../Header/header.js"></script>
 </body>
-<script src="../../Header/header.js"></script>
 </html>
