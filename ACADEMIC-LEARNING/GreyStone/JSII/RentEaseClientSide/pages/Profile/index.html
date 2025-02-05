@@ -6,40 +6,99 @@
   <title>Profile Update</title>
   <link rel="stylesheet" href="../../Header/header.css">
   <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
+  <style>
+    .profile-form {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--secondary-color);
+      border-radius: 4px;
+      background-color: #F8F8F8;
+    }
+
+    input:focus {
+      outline: 2px solid var(--main-color);
+    }
+
+    button[type="submit"] {
+      background-color: var(--main-color);
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--secondary-color);
+    }
+
+    #error {
+      color: red;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+  </style>
 </head>
 <body>
   <div id="headerDiv"></div>
-  <form id="updateForm">
-    <h2>Update Your Profile</h2>
-
-    <div class="inputs">
-      <span>First Name</span>
-      <input type="text" id="firstName" required>
-    </div>
-    <div class="inputs">
-      <span>Last Name</span>
-      <input type="text" id="lastName" required>
-    </div>
-    <div class="inputs">
-      <span>Birth Date</span>
-      <input type="date" id="birthDate" required>
-    </div>
-    <div class="inputs">
-      <span>Email address</span>
-      <input type="email" id="email" disabled>
-    </div>
-    <div class="inputs">
-      <span>New Password (optional)</span>
-      <input type="password" id="password" placeholder="Enter new password">
-    </div>
-    <div class="inputs">
-      <span>Confirm New Password</span>
-      <input type="password" id="confirmPassword" placeholder="Re-enter new password">
-    </div>
+  <main>
+    <form class="profile-form" id="updateForm">
+      <h2 style="margin-bottom: 2rem; color: var(--main-color); text-align: center;">
+        Update Your Profile
+      </h2>
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="firstName" required>
+      </div>
     
-    <div id="error"></div>
-    <button type="submit">Update Profile</button>
-  </form>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="lastName" required>
+      </div>
+      <div class="form-group">
+        <label>Birth Date</label>
+        <input type="date" id="birthDate" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input style="cursor: not-allowed;" type="email" id="email" disabled>
+      </div>
+      <div class="form-group">
+        <label>New Password (optional)</label>
+        <input type="password" id="password" placeholder="Enter new password">
+      </div>
+      <div class="form-group">
+        <label>Confirm New Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter new password">
+      </div>
+    
+      <div id="error" class="error"></div>
+    
+      <button type="submit">Update Profile</button>
+    </form>
+  </main> 
 </body>
 <script src="../../Header/header.js"></script>
 <script>
@@ -65,10 +124,39 @@
       const confirmPassword = document.getElementById('confirmPassword').value;
       const errorDiv = document.getElementById('error');
 
-      if (password && password !== confirmPassword) {
-        errorDiv.textContent = "Passwords do not match!";
+      if (firstName.length < 2 || lastName.length < 2) {
+      errorDiv.textContent = 'First and last names must be at least 2 characters long.';
+      return;
+    }
+
+    const today = new Date();
+    const birthDateObj = new Date(birthDate);
+    const age = today.getFullYear() - birthDateObj.getFullYear();
+    if (age < 18 || age > 120) {
+      errorDiv.textContent = 'You must be between 18 and 120 years old!';
+      return;
+    }
+
+    if (password) {
+      if (password.length < 6) {
+        errorDiv.textContent = 'Password must be at least 6 characters long!';
         return;
       }
+
+      const hasLetter = /[a-zA-Z]/.test(password);
+      const hasNumber = /[0-9]/.test(password);
+      const hasSpecialChar = /[^a-zA-Z0-9]/.test(password);
+
+      if (!hasLetter || !hasNumber || !hasSpecialChar) {
+        errorDiv.textContent = 'Password must contain at least one letter, one number, and one special character!';
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        errorDiv.textContent = 'Passwords do not match!';
+        return;
+      }
+    }
 
       const users = JSON.parse(localStorage.getItem('users')) || [];
       const userIndex = users.findIndex(user => user.email === currentUser.email);

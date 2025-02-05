@@ -77,25 +77,41 @@ body {
 
 .flat-details h3 {
   margin: 0 0 10px;
-  color: var(--main-color);
+  color: black;
 }
 
 .flat-details p {
   margin: 5px 0;
 }
 
-.favourite-btn {
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
+
+
+.book-btn, .favorite-btn {
+  flex: 1;
+  margin: 0 5px;
   padding: 5px 10px;
-  cursor: pointer;
+  border: none;
   border-radius: 3px;
-  margin-top: 10px;
+  cursor: pointer;
+  color: white;
 }
 
-.favourite-btn:hover {
-  background-color: var(--main-color-hover);
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+}
+
+.book-btn {
+  background-color: #997C70   ; 
+}
+
+.favorite-btn {
+  background-color: #b3b3b3;
+}
+.favorite-btn.favorite {
+  background-color: #57b643;
 }
 </style>
 <body>
@@ -105,8 +121,6 @@ body {
     <section class="filters">
       <select id="city-filter">
         <option value="">Select City</option>
-        <option value="New York">New York</option>
-        <option value="Los Angeles">Los Angeles</option>
       </select>
       <input type="number" id="min-price" placeholder="Min Price">
       <input type="number" id="max-price" placeholder="Max Price">
@@ -118,6 +132,8 @@ body {
         <option value="price">Price</option>
         <option value="area">Area Size</option>
       </select>
+      <button id="applyFilters">Apply</button>
+      <button id="clearFilters">Clear</button>
     </section>
 
     <div class="flats-grid" id="flats-grid">
@@ -125,36 +141,65 @@ body {
   </main>
 </body>
 <script>
-  async function fetchFlats() {
-    let flats = [];
+  let allFlats = [];
 
-    const storedFlats = localStorage.getItem("flats");
-    if (storedFlats) {
-      flats = JSON.parse(storedFlats);
-    } else {
-      try {
-        const response = await fetch("../../flats.json");
-        flats = await response.json();
-        localStorage.setItem("flats", JSON.stringify(flats));
-      } catch (error) {
-        console.error("Error fetching flats:", error);
-      }
+  async function fetchFlats() {
+    let originalFlats = [];
+    try {
+      const response = await fetch("../../flats.json");
+      originalFlats = await response.json();
+    } catch (error) {
+      console.error("Error fetching flats.json:", error);
     }
-    displayFlats(flats);
+    
+    const storedFlats = JSON.parse(localStorage.getItem("flats")) || [];
+    
+    const storedMap = new Map();
+    storedFlats.forEach(flat => storedMap.set(flat.id, flat));
+    
+    const mergedFlats = [...storedFlats];
+    originalFlats.forEach(flat => {
+      if (!storedMap.has(flat.id)) {
+        mergedFlats.push(flat);
+      }
+    });
+    
+    allFlats = mergedFlats;
+    populateCityFilter(allFlats); 
+    displayFlats(allFlats);
+  }
+
+  function populateCityFilter(flats) {
+    const cityFilter = document.getElementById("city-filter");
+
+    const citiesSet = new Set();
+    flats.forEach(flat => {
+      if (flat.city) {
+        citiesSet.add(flat.city);
+      }
+    });
+
+    const cities = Array.from(citiesSet).sort((a, b) => a.localeCompare(b));
+    
+    cityFilter.innerHTML = '<option value="">Select City</option>';
+    cities.forEach(city => {
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      cityFilter.appendChild(option);
+    });
   }
 
   function displayFlats(flats) {
     const flatsGrid = document.getElementById("flats-grid");
-    flatsGrid.innerHTML = ""; 
-
-    const fallbackImage = "https://dummyimage.com/300x200/FfF9F4/222222&text=RentEase"; 
-
+    flatsGrid.innerHTML = "";
+    const fallbackImage = "https://dummyimage.com/300x200/FfF9F4/222222&text=RentEase";
+    
     flats.forEach((flat) => {
       const flatCard = document.createElement("div");
       flatCard.className = "flat-card";
-
       const imageUrl = flat.image || fallbackImage;
-
+      
       flatCard.innerHTML = `
         <img src="${imageUrl}" alt="Flat Image" class="flat-image">
         <div class="flat-details">
@@ -165,12 +210,96 @@ body {
           <p><strong>Year Built:</strong> ${flat.yearBuilt}</p>
           <p><strong>Rent Price:</strong> $${flat.rentPrice}</p>
           <p><strong>Date Available:</strong> ${flat.dateAvailable}</p>
-          <button class="favourite-btn">★</button>
+          <div class="buttons-container">
+            <button class="book-btn" data-id="${flat.id}">Contact Now</button>
+            <button class="favorite-btn ${flat.isFavorite ? "favorite" : ""}" data-id="${flat.id}">
+              ${flat.isFavorite ? "★" : "☆"}
+            </button>
+          </div>
         </div>
       `;
       flatsGrid.appendChild(flatCard);
     });
+    
+    attachFavoriteListeners();
+    attachBookListeners();
   }
+
+  function attachFavoriteListeners() {
+    const favButtons = document.querySelectorAll(".favorite-btn");
+    favButtons.forEach((btn) => {
+      btn.addEventListener("click", function() {
+        const flatId = parseInt(this.getAttribute("data-id"));
+        allFlats = allFlats.map(flat => {
+          if (flat.id === flatId) {
+            flat.isFavorite = !flat.isFavorite;
+          }
+          return flat;
+        });
+        const storedFlats = JSON.parse(localStorage.getItem("flats")) || [];
+        const updatedStoredFlats = storedFlats.map(flat => {
+          if (flat.id === flatId) {
+            flat.isFavorite = !flat.isFavorite;
+          }
+          return flat;
+        });
+        localStorage.setItem("flats", JSON.stringify(updatedStoredFlats));
+        displayFlats(allFlats);
+      });
+    });
+  }
+
+  function attachBookListeners() {
+    const bookButtons = document.querySelectorAll(".book-btn");
+    bookButtons.forEach((btn) => {
+      btn.addEventListener("click", function() {
+        const flatId = this.getAttribute("data-id");
+        window.location.href = ``;
+      });
+    });
+  }
+
+  function applyFilters() {
+    const cityFilter = document.getElementById("city-filter").value;
+    const minPrice = parseFloat(document.getElementById("min-price").value) || 0;
+    const maxPrice = parseFloat(document.getElementById("max-price").value) || Infinity;
+    const minArea = parseFloat(document.getElementById("min-area").value) || 0;
+    const maxArea = parseFloat(document.getElementById("max-area").value) || Infinity;
+    const sortBy = document.getElementById("sort-by").value;
+
+    let filteredFlats = allFlats.filter(flat => {
+      const matchesCity = cityFilter ? flat.city === cityFilter : true;
+      const matchesPrice = flat.rentPrice >= minPrice && flat.rentPrice <= maxPrice;
+      const matchesArea = flat.areaSize >= minArea && flat.areaSize <= maxArea;
+      return matchesCity && matchesPrice && matchesArea;
+    });
+
+    if (sortBy) {
+      filteredFlats.sort((a, b) => {
+        if (sortBy === "city") {
+          return a.city.localeCompare(b.city);
+        } else if (sortBy === "price") {
+          return a.rentPrice - b.rentPrice;
+        } else if (sortBy === "area") {
+          return a.areaSize - b.areaSize;
+        }
+      });
+    }
+    displayFlats(filteredFlats);
+  }
+
+  function clearFilters() {
+    document.getElementById("city-filter").value = "";
+    document.getElementById("min-price").value = "";
+    document.getElementById("max-price").value = "";
+    document.getElementById("min-area").value = "";
+    document.getElementById("max-area").value = "";
+    document.getElementById("sort-by").value = "";
+    displayFlats(allFlats);
+  }
+
+  document.getElementById("applyFilters").addEventListener("click", applyFilters);
+  document.getElementById("clearFilters").addEventListener("click", clearFilters);
 
   fetchFlats();
 </script>

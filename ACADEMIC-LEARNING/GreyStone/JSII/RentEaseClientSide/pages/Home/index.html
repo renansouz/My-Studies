@@ -7,9 +7,103 @@
   <link rel="stylesheet" href="">
   <link rel="stylesheet" href="../../Header/header.css">
   <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
+  <style>
+    .flats-grid, .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .flat-card {
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .flat-card:hover {
+      transform: translateY(-5px);
+    }
+    .flat-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .flat-details {
+      padding: 15px;
+    }
+    .remove-btn {
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div id="headerDiv"></div>
+  <main>
+    <div class="favorites-grid" id="favorites-grid"></div>
+  </main>
 </body>
+<script>
+  let allFlats = JSON.parse(localStorage.getItem("flats")) || [];
+
+  function displayFavorites() {
+    const favGrid = document.getElementById("favorites-grid");
+    favGrid.innerHTML = "";
+    const fallbackImage = "https://dummyimage.com/300x200/FfF9F4/222222&text=RentEase";
+    
+    // Filter flats: only favorites
+    const favorites = allFlats.filter(flat => flat.isFavorite);
+    
+    favorites.forEach(flat => {
+      const favCard = document.createElement("div");
+      favCard.className = "flat-card";
+      const imageUrl = flat.image || fallbackImage;
+      
+      favCard.innerHTML = `
+        <img src="${imageUrl}" alt="Flat Image" class="flat-image">
+        <div class="flat-details">
+          <h3>${flat.city}, ${flat.streetName}</h3>
+          <p><strong>Street Number:</strong> ${flat.streetNumber}</p>
+          <p><strong>Area Size:</strong> ${flat.areaSize} sqft</p>
+          <p><strong>Has AC:</strong> ${flat.hasAC ? "Yes" : "No"}</p>
+          <p><strong>Year Built:</strong> ${flat.yearBuilt}</p>
+          <p><strong>Rent Price:</strong> $${flat.rentPrice}</p>
+          <p><strong>Date Available:</strong> ${flat.dateAvailable}</p>
+          <button class="remove-btn" data-id="${flat.id}">Remove</button>
+        </div>
+      `;
+      favGrid.appendChild(favCard);
+    });
+    
+    attachRemoveListeners();
+  }
+
+  // Function to attach event listeners to all Remove buttons
+  function attachRemoveListeners() {
+    const removeButtons = document.querySelectorAll(".remove-btn");
+    removeButtons.forEach(btn => {
+      btn.addEventListener("click", function() {
+        const flatId = parseInt(this.getAttribute("data-id"));
+        // Update the global flats array: mark the flat as not favorite
+        allFlats = allFlats.map(flat => {
+          if (flat.id === flatId) {
+            flat.isFavorite = false;
+          }
+          return flat;
+        });
+        localStorage.setItem("flats", JSON.stringify(allFlats));
+        displayFavorites();
+      });
+    });
+  }
+
+  displayFavorites();
+</script>
 <script src="../../Header/header.js"></script>
 </html>

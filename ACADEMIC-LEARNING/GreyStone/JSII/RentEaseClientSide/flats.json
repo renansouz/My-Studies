@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "city": "New York",
+    "city": "Vancouver",
     "streetName": "5th Avenue",
     "streetNumber": 123,
     "areaSize": 1200,
@@ -9,11 +9,12 @@
     "yearBuilt": 2010,
     "rentPrice": 2000,
     "dateAvailable": "2023-10-01",
-    "image": "https://www.nesto.ca/wp-content/uploads/2022/05/type-of-houses-in-ca.jpg"
+    "image": "https://www.nesto.ca/wp-content/uploads/2022/05/type-of-houses-in-ca.jpg",
+    "isFavorite": false
   },
   {
     "id": 2,
-    "city": "Los Angeles",
+    "city": "Vancouver",
     "streetName": "Sunset Blvd",
     "streetNumber": 456,
     "areaSize": 1500,
@@ -21,11 +22,13 @@
     "yearBuilt": 2015,
     "rentPrice": 2500,
     "dateAvailable": "2023-11-01",
-    "image": ""
+    "image": "",
+    "isFavorite": false
+
   },
   {
     "id": 3,
-    "city": "Chicago",
+    "city": "Vancouver",
     "streetName": "Michigan Ave",
     "streetNumber": 789,
     "areaSize": 1100,
@@ -33,11 +36,12 @@
     "yearBuilt": 2008,
     "rentPrice": 1800,
     "dateAvailable": "2023-12-01",
-    "image": "https://www.vmcdn.ca/f/files/burnabynow/images/burnabypoint2buckinghamheightsluxuryhomepalettecreative2023front.JPG;w=960;h=640;bgcolor=000000"
+    "image": "https://www.vmcdn.ca/f/files/burnabynow/images/burnabypoint2buckinghamheightsluxuryhomepalettecreative2023front.JPG;w=960;h=640;bgcolor=000000",
+    "isFavorite": false
   },
   {
-    "id": 20,
-    "city": "San Francisco",
+    "id": 4,
+    "city": "richmond",
     "streetName": "Market St",
     "streetNumber": 101,
     "areaSize": 1300,
@@ -45,6 +49,7 @@
     "yearBuilt": 2012,
     "rentPrice": 3000,
     "dateAvailable": "2024-01-01",
-    "image": "https://img.jamesedition.com/listing_images/2022/09/16/20/11/05/9566ab79-a2fb-4da3-be9e-3f9b49f8fb7d/je/760x470xc.jpg"
+    "image": "https://img.jamesedition.com/listing_images/2022/09/16/20/11/05/9566ab79-a2fb-4da3-be9e-3f9b49f8fb7d/je/760x470xc.jpg",
+    "isFavorite": false
   }
 ]
