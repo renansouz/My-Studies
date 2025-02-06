@@ -9,25 +9,46 @@
 
 body {
   background-color: var(--background);
+  color: var(--text-primary);
+}
+
+h3{
+  color: var(--main-color);
+}
+
+input, select {
+  border: 1px solid #e0e0e0;
+  background-color: var(--surface);
+  border-radius: 4px;
+  padding: 0.8rem;
 }
 
 :root {
-  --main-color: #80a179;
-  --main-color-hover: #85aa7e;
-  --secondary-color:#997C70 ;
-  --background: #f1e3e0;
-  --color-text: #5e4f4a;
+  --main-color: #2196F3;
+  --main-hover: #1976D2;
+  
+  --secondary-color: #64B5F6;
+  --secondary-hover: #42A5F5;
+  
+  --background: #F8F9FA;
+  --surface: #FFFFFF;
+  --text-primary: #1A237E;
+  --text-secondary: #546E7A; 
+  
+  --success: #4CAF50;
+  --error: #EF5350;
+  --warning: #FFC107;      
 }
 
 #welcomeMessage {
   font-size: .9rem;
 }
 #header{
-  background-color: #ffffff;
+  background-color:  var(--surface);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--color-text);
+  color: var(--text-primary);
   font-weight: 600;
   margin: 1rem;
   padding: 0 10px;
@@ -38,7 +59,7 @@ body {
   width: 15rem;
 }
 #header nav a:hover {
-  border-bottom: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--text-primary);
 }
 nav {
   display: flex;
@@ -46,7 +67,7 @@ nav {
 }
 nav a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--text-primary);
   margin: 1rem 2rem;
   font-weight: 300;
 }
@@ -55,15 +76,9 @@ nav a {
   align-items: center;
   gap: 1rem;
   border: none;
+  background-color: var(--surface);
   font-weight: 600;
-  background-color: #ffffff;
-  color: #700c08;
   margin-left: 7rem;
   padding-bottom: .5rem;
-}
-.logOutBtn img{
-  color: #700c08;
-}
-.logOutBtn:hover {
   cursor: pointer;
 }

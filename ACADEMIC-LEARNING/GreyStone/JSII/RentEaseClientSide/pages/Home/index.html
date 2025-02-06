@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="../../Header/header.css">
   <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
   <style>
+    h3 {
+      color: black;
+    }
     .flats-grid, .favorites-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -33,7 +36,7 @@
       padding: 15px;
     }
     .remove-btn {
-      background-color: #ff0000;
+      background-color: #eb2222;
       color: white;
       border: none;
       padding: 5px 10px;
@@ -57,7 +60,6 @@
     favGrid.innerHTML = "";
     const fallbackImage = "https://dummyimage.com/300x200/FfF9F4/222222&text=RentEase";
     
-    // Filter flats: only favorites
     const favorites = allFlats.filter(flat => flat.isFavorite);
     
     favorites.forEach(flat => {
@@ -84,13 +86,11 @@
     attachRemoveListeners();
   }
 
-  // Function to attach event listeners to all Remove buttons
   function attachRemoveListeners() {
     const removeButtons = document.querySelectorAll(".remove-btn");
     removeButtons.forEach(btn => {
       btn.addEventListener("click", function() {
         const flatId = parseInt(this.getAttribute("data-id"));
-        // Update the global flats array: mark the flat as not favorite
         allFlats = allFlats.map(flat => {
           if (flat.id === flatId) {
             flat.isFavorite = false;
