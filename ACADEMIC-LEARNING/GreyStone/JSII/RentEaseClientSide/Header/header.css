@@ -82,3 +82,72 @@ nav a {
   padding-bottom: .5rem;
   cursor: pointer;
 }
+
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  header nav a {
+    margin: 5px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .logo {
+    width: 100px; 
+    margin: 10px 0;
+  }
+  
+  .right-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .logOutBtn{
+    margin-left: 0;
+  }
+  #welcomeMessage {
+    text-align: center;
+  }
+}
+
+@media (max-width: 900p) {
+  header {
+    padding: 8px;
+  }
+  
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  header nav a {
+    margin: 3px 0;
+    font-size: 0.85rem;
+  }
+  
+  .logo {
+    width: 80px;
+    margin: 5px 0;
+  }
+  
+  .right-menu {
+    margin-top: 5px;
+  }
+  
+  #welcomeMessage {
+    font-size: 0.8rem;
+
+  }
+}

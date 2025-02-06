@@ -42,7 +42,6 @@
 }
 
 .flat-card {
-  width: 312.250px;
   background-color: var(--surface);
   border-radius: 5px;
   overflow: hidden;
@@ -73,7 +72,7 @@
   margin: 5px 0;
 }
 
-.book-btn, .favorite-btn {
+.contact-btn, .favorite-btn {
   flex: 1;
   margin: 0 5px;
   padding: 5px 10px;
@@ -90,7 +89,7 @@
 
 }
 
-.book-btn {
+.contact-btn {
   background-color: var(--main-color);
   color: var(--surface);
 }
@@ -166,34 +165,13 @@
   let allFlats = [];
 
   async function fetchFlats() {
-    let originalFlats = [];
-    try {
-      const response = await fetch("../../flats.json");
-      originalFlats = await response.json();
-    } catch (error) {
-      console.error("Error fetching flats.json:", error);
-    }
-    
-    const storedFlats = JSON.parse(localStorage.getItem("flats")) || [];
-    
-    const storedMap = new Map();
-    storedFlats.forEach(flat => storedMap.set(flat.id, flat));
-    
-    const mergedFlats = [...storedFlats];
-    originalFlats.forEach(flat => {
-      if (!storedMap.has(flat.id)) {
-        mergedFlats.push(flat);
-      }
-    });
-    
-    allFlats = mergedFlats;
+    allFlats = JSON.parse(localStorage.getItem("flats")) || [];
     populateCityFilter(allFlats); 
     displayFlats(allFlats);
   }
 
   function populateCityFilter(flats) {
     const cityFilter = document.getElementById("city-filter");
-
     const citiesSet = new Set();
     flats.forEach(flat => {
       if (flat.city) {
@@ -233,7 +211,7 @@
           <p><strong>Rent Price:</strong> $${flat.rentPrice}</p>
           <p><strong>Date Available:</strong> ${flat.dateAvailable}</p>
           <div class="buttons-container">
-            <button class="book-btn" data-id="${flat.id}">Contact Now</button>
+            <button class="contact-btn" data-id="${flat.id}">Contact Now</button>
             <button class="favorite-btn ${flat.isFavorite ? "favorite" : ""}" data-id="${flat.id}">
               ${flat.isFavorite ? "★" : "☆"}
             </button>
@@ -244,7 +222,7 @@
     });
     
     attachFavoriteListeners();
-    attachBookListeners();
+    attachContactListeners();
   }
 
   function attachFavoriteListeners() {
@@ -271,12 +249,19 @@
     });
   }
 
-  function attachBookListeners() {
-    const bookButtons = document.querySelectorAll(".book-btn");
-    bookButtons.forEach((btn) => {
+  function attachContactListeners() {
+    const contactButton = document.querySelectorAll(".contact-btn");
+    contactButton.forEach((btn) => {
       btn.addEventListener("click", function() {
         const flatId = this.getAttribute("data-id");
-        window.location.href = ``;
+        const flat = allFlats.find(f => f.id == flatId);
+        if (flat && flat.landlordEmail) {
+          const subject = encodeURIComponent("Interested about your flat on RentEase");
+          const body = encodeURIComponent(`Hello, I am interested in the flat located at ${flat.streetName}, ${flat.city}. Could you please provide more details?\n Thank you :)`);
+          window.location.href = `mailto:${flat.landlordEmail}?subject=${subject}&body=${body}`;
+        } else {
+          alert("Landlord email is not available for this flat.");
+        }
       });
     });
   }

@@ -110,7 +110,7 @@
 
       <div class="form-group">
         <label>Year Built *</label>
-        <input type="number" id="yearBuilt" min="1900" max="2023" required>
+        <input type="number" id="yearBuilt" min="1900" max="2025" required>
       </div>
 
       <div class="form-group">
@@ -135,10 +135,10 @@
   </main>
 
   <script>
-    console.log(Date.now());
     document.getElementById('newFlatForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      
+      const currentUser = JSON.parse(localStorage.getItem("currentUser")) || JSON.parse(sessionStorage.getItem("currentUser"));
+
       const newFlat = {
         id: Date.now(),
         city: document.getElementById('city').value.trim(),
@@ -150,7 +150,8 @@
         rentPrice: parseInt(document.getElementById('rentPrice').value),
         dateAvailable: document.getElementById('dateAvailable').value,
         image: document.getElementById('image').value.trim(),
-        isFavorite: true
+        isFavorite: true,
+        landlordEmail: currentUser ? currentUser.email : ""  
       };
 
       if (!newFlat.city || !newFlat.streetName || isNaN(newFlat.streetNumber) || 

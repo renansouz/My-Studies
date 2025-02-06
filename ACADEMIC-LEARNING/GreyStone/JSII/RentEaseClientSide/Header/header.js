@@ -11,7 +11,7 @@ function header() {
       <nav> 
         <a href="../Home/">Home</a>
         <a href="../AllFlats/">All Flats</a>
-        <img src="../../img/logo.png" alt="logo" width="150px" >
+        <img class="logo" src="../../img/logo.png" alt="logo" width="150px" >
         <a href="../NewFlat/">New Flat</a>
         <a href="../Profile/">Profile</a>
       </nav>
