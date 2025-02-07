@@ -166,6 +166,7 @@
 
   async function fetchFlats() {
     allFlats = JSON.parse(localStorage.getItem("flats")) || [];
+    allFlats.sort((a, b) => b.id - a.id);
     populateCityFilter(allFlats); 
     displayFlats(allFlats);
   }
@@ -291,6 +292,8 @@
           return a.areaSize - b.areaSize;
         }
       });
+    } else {
+      filteredFlats.sort((a,b) => b.id - a.id)
     }
     displayFlats(filteredFlats);
   }
