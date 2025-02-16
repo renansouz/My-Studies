@@ -1,8 +1,4 @@
-function narcissistic(value) {
-  return ("" + value)
-  .split("")
-  .map(num => Number(num) ** ("" + value).length)
-  .reduce((sum, c) => sum + c) == value
+function spinWords(string){
+  return string.split(" ").map(string => string.length > 5 ? string.split("").reverse().join("") : string ).join(" ")
 }
-
-narcissistic(153)
+spinWords("Hey fellow warriors")
