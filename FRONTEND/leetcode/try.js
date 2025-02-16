@@ -1,4 +1,9 @@
-function spinWords(string){
-  return string.split(" ").map(string => string.length > 5 ? string.split("").reverse().join("") : string ).join(" ")
+function narcissistic(value) {
+  console.log( ('' + value)
+    .split("")
+    .map(n => Number(n) ** ('' + value).length).reduce((a,b) => a+b) == value)
 }
-spinWords("Hey fellow warriors")
+let string = "153"
+let number = 153
+
+console.log(string == number);
