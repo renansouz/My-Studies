@@ -6,4 +6,4 @@ function narcissistic(value) {
 let string = "153"
 let number = 153
 
-console.log(string == number);
+console.log(string == number)
