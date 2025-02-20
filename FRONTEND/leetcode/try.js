@@ -1,20 +1,18 @@
-let romanToInt = roman => {
-  const romanMap = {
-    'M':1000,
-    'D':500,
-    'C':100,
-    'L':50,
-    'X':10,
-    'V':5,
-    'I':1
-  }
-    let  total = 0;
-    for(let i = 0; i < roman.length; i++){
-        if(romanMap[roman[i]] < romanMap[roman[i+1]]) {
-            total -= romanMap[roman[i]] 
-        } else {
-             total += romanMap[roman[i]] 
-        }
+var smallestNumber = function(pattern) {  
+  let ans = [1], temp = [] 
+
+  for(let i = 0; i<pattern.length; i++) {
+    if(pattern[i] == "I") {
+        ans.push(...temp.reverse() , i+2)
+        temp = []
+    } else {      
+        temp.push(ans.pop())
+        ans.push(i+2)
     }
-    return total
   }
+
+  ans.push(...temp.reverse())
+  console.log(
+   ans.join(""));
+};  
+smallestNumber("IIIDIDDD")
