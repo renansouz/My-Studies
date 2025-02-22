@@ -1,18 +1,15 @@
-var smallestNumber = function(pattern) {  
-  let ans = [1], temp = [] 
-
-  for(let i = 0; i<pattern.length; i++) {
-    if(pattern[i] == "I") {
-        ans.push(...temp.reverse() , i+2)
-        temp = []
-    } else {      
-        temp.push(ans.pop())
-        ans.push(i+2)
-    }
+var scoreOfString = function(s) {
+  total = 0
+  for(let i = 0; i < s.length; i++) {
+      if(s[i+1]){
+      if (s[i] < s[i + 1]) {
+          total += (s[i+1] - s[i])
+      } else {
+          total += (s[i] - s[i+1])
+      }
+      }
   }
+  return total
+}
 
-  ans.push(...temp.reverse())
-  console.log(
-   ans.join(""));
-};  
-smallestNumber("IIIDIDDD")
+console.log(scoreOfString("hello"));

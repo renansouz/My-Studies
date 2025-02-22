@@ -12,5 +12,6 @@ var smallestNumber = function(pattern) {
   return ans.concat(temp.reverse()).join("")
 };  
 
-smallestNumber("DDD")
+console.log(smallestNumber("DDD"));
+
 
