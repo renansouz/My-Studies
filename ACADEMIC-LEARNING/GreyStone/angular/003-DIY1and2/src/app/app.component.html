@@ -1,0 +1,36 @@
+<div style="text-align: left; padding: 20px">
+  <h2>Do it yourself 1</h2>
+  <input
+    type="text"
+    [(ngModel)]="firstName"
+    name="firstName"
+    placeholder="firstName"
+  />
+  <input
+    type="text"
+    [(ngModel)]="lastName"
+    name="lastName"
+    placeholder="lastName"
+  />
+  <input type="email" [(ngModel)]="email" name="email" placeholder="email" />
+  <button (click)="showInfo1()">Show info</button>
+</div>
+
+<div style="text-align: left; padding: 20px">
+  <h2>Do it yourself 2</h2>
+  <input
+    type="text"
+    [(ngModel)]="fullName"
+    name="fullName"
+    placeholder="fullName"
+  />
+  <input type="text" [(ngModel)]="city" name="city" placeholder="city" />
+  <input
+    type="text"
+    [(ngModel)]="country"
+    name="country"
+    placeholder="country"
+  />
+  <button (click)="showInfo2()">Show info</button>
+  <p>{{ sentence }}</p>
+</div>
