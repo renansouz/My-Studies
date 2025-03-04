@@ -1,10 +1,13 @@
+import reactImg from "../../assets/react-core-concepts.png";
+import "./Header.css";
+
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
 }
 
-function Header() {
+export default function Header() {
   const description = reactDescriptions[genRandomInt(2)];
   return (
     <header>
