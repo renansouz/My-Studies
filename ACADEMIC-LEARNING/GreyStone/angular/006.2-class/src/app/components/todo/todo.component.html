@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-form-field appearance="outline">
+    <mat-label>New Task</mat-label>
+    <input matInput [formControl]="taskControl" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+</mat-card>
+
+<!-- Task List -->
+<mat-card
+  *ngFor="let task of tasks; let i = index"
+  draggable="true"
+  (dragstart)="onDragStart($event, i)"
+  (dragend)="onDragEnd()"
+>
+  {{ task }}
+</mat-card>
+
+<!-- Drop Zone -->
+<div
+  class="drop-zone"
+  (dragover)="allowDrop($event)"
+  (drop)="onDrop($event)"
+>
+  Drag here to remove or move tasks
+</div>
