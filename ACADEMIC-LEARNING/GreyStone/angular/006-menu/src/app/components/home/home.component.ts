@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-home',
   imports: [MatCardModule, MatIconModule, MatButtonModule],
   template: `
-    <h1 class="center">Welcome to the future</h1>
+    <h1 class="text-center text-2xl font-bold">Welcome to the future</h1>
     <div class="image-slider">
       <button mat-icon-button (click)="prevImage()">
         <mat-icon>chevron_left</mat-icon>

@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [RouterOutlet, MatButtonModule, RouterLink, RouterModule],
   template: `
-    <header class="bg-red-500">
+    <header>
       <button routerLink="/" mat-button>Home</button>
       <button routerLink="/about" mat-button>About</button>
       <button routerLink="/contact" mat-button>Contact</button>
