@@ -23,6 +23,31 @@ import { MatButtonModule } from '@angular/material/button';
         <mat-icon>chevron_right</mat-icon>
       </button>
     </div>
+
+    <p class="center">
+      <a routerLink="/about">Learn more about us</a>
+    </p>
+
+    <p class="center">
+      <a routerLink="/contact">Contact us</a>
+    </p>
+
+    <p class="center">
+      <a routerLink="/login">Login</a>
+    </p>
+
+    <p class="center">
+      <a routerLink="/register">Register</a>
+    </p>
+
+    <p class="center">
+      <a routerLink="/profile">Profile</a>
+    </p>
+
+    <p class="center">
+      <a routerLink="/admin">Admin</a>
+    </p>
+    <div><</div>
   `,
   styles: `.center {
     text-align: center;
