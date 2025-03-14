@@ -1,11 +1,23 @@
 <form class="flex m-10 gap-2 items-center" (submit)="addTask()">
   <mat-form-field>
     <mat-label>Title</mat-label>
-    <input [(ngModel)]="taskTitle" matInput placeholder="Title" name="title" />
+    <input
+      required
+      [(ngModel)]="taskTitle"
+      matInput
+      placeholder="Title"
+      name="title"
+    />
   </mat-form-field>
   <mat-form-field>
     <mat-label>Description</mat-label>
-    <input matInput placeholder="description" />
+    <input
+      required
+      [(ngModel)]="taskDescription"
+      matInput
+      placeholder="Description"
+      name="description"
+    />
   </mat-form-field>
   <button class="mb-4" mat-raised-button color="primary">Add Task</button>
 </form>
@@ -20,12 +32,14 @@
       class="example-list"
       (cdkDropListDropped)="drop($event)"
     >
-      @for (item of todo; track item) {
+      @if (todo.length <= 0) {
+      <p class="text-lg font-light text-center mt-4">No tasks</p>
+      } @else { @for (item of todo; track item) {
       <div class="example-box" cdkDrag>
-        <p>{{ item }}</p>
-        <p>{{ item }}</p>
+        <p class="text-lg font-medium">{{ item.title }}</p>
+        <p class="text-xs italic">{{ item.description }}</p>
       </div>
-      }
+      } }
     </div>
   </div>
 
@@ -38,9 +52,16 @@
       class="example-list"
       (cdkDropListDropped)="drop($event)"
     >
-      @for (item of done; track item) {
-      <div class="example-box" cdkDrag>{{ item }}</div>
-      }
+      @if (done.length <= 0) {
+      <p class="text-lg font-light text-center mt-4">No tasks</p>
+      } @else { @for (item of done; track item) {
+      <div class="example-box" cdkDrag>
+        <p class="text-lg font-medium">
+          {{ item.title }}
+        </p>
+        <p class="text-xs italic">{{ item.description }}</p>
+      </div>
+      }}
     </div>
   </div>
 </div>

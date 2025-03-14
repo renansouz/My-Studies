@@ -1,8 +1,4 @@
 import { Routes } from '@angular/router';
-import { FormComponent } from './form/form.component';
-import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { FormComponent } from './components/form/form.component';
 
-export const routes: Routes = [
-  { path: '', component: FormComponent },
-  { path: 'order-summary', component: OrderSummaryComponent },
-];
+export const routes: Routes = [{ path: '', component: FormComponent }];

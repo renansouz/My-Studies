@@ -48,18 +48,12 @@ import { MatButtonModule } from '@angular/material/button';
         padding: 20px 10px;
         border-bottom: solid 1px #ccc;
         color: rgba(0, 0, 0, 0.87);
-        display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
         cursor: move;
-        background: white;
         font-size: 14px;
       }
 
       .cdk-drag-preview {
-        box-sizing: border-box;
         border-radius: 4px;
         box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
           0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
@@ -85,13 +79,13 @@ import { MatButtonModule } from '@angular/material/button';
   ],
 })
 export class AppComponent {
-  todo: string[] = [];
-
-  done: string[] = [];
+  todo: { title: string; description: string }[] = [];
+  done: { title: string; description: string }[] = [];
 
   taskTitle: string = '';
+  taskDescription: string = '';
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<{ title: string; description: string }[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -109,10 +103,13 @@ export class AppComponent {
   }
 
   addTask() {
-    if (this.taskTitle) {
-      this.todo.push(this.taskTitle);
+    if (this.taskTitle && this.taskDescription) {
+      this.todo.push({
+        title: this.taskTitle,
+        description: this.taskDescription,
+      });
       this.taskTitle = '';
+      this.taskDescription = '';
     }
-    console.log(this.todo);
   }
 }
