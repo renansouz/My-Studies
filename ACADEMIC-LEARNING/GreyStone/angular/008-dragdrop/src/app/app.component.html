@@ -1,0 +1,46 @@
+<form class="flex m-10 gap-2 items-center" (submit)="addTask()">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input [(ngModel)]="taskTitle" matInput placeholder="Title" name="title" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="description" />
+  </mat-form-field>
+  <button class="mb-4" mat-raised-button color="primary">Add Task</button>
+</form>
+
+<div class="m-10 flex" cdkDropListGroup>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of todo; track item) {
+      <div class="example-box" cdkDrag>
+        <p>{{ item }}</p>
+        <p>{{ item }}</p>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of done; track item) {
+      <div class="example-box" cdkDrag>{{ item }}</div>
+      }
+    </div>
+  </div>
+</div>
