@@ -36,6 +36,10 @@ import { CustomSidenavComponent } from './components/custom-sidenav/custom-siden
       mat-sidenav-container {
         height: calc(100vh - 64px);
       }
+      mat-sidenav-container,
+      mat-sidenav-content {
+        transition: all 500ms ease-in-out;
+      }
     `,
   ],
   imports: [
