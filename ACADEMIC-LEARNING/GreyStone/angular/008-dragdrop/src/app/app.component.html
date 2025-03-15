@@ -35,9 +35,14 @@
       @if (todo.length <= 0) {
       <p class="text-lg font-light text-center mt-4">No tasks</p>
       } @else { @for (item of todo; track item) {
-      <div class="example-box" cdkDrag>
-        <p class="text-lg font-medium">{{ item.title }}</p>
-        <p class="text-xs italic">{{ item.description }}</p>
+      <div class="example-box flex justify-between items-center" cdkDrag>
+        <div>
+          <p class="text-lg font-medium">{{ item.title }}</p>
+          <p class="text-xs italic">{{ item.description }}</p>
+        </div>
+        <button mat-icon-button class="mr-4" (click)="deleteTask(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
       } }
     </div>
@@ -55,11 +60,14 @@
       @if (done.length <= 0) {
       <p class="text-lg font-light text-center mt-4">No tasks</p>
       } @else { @for (item of done; track item) {
-      <div class="example-box" cdkDrag>
-        <p class="text-lg font-medium">
-          {{ item.title }}
-        </p>
-        <p class="text-xs italic">{{ item.description }}</p>
+      <div class="example-box flex justify-between items-center" cdkDrag>
+        <div>
+          <p class="text-lg font-medium">{{ item.title }}</p>
+          <p class="text-xs italic">{{ item.description }}</p>
+        </div>
+        <button mat-icon-button class="mr-4" (click)="deleteTask(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
       }}
     </div>
