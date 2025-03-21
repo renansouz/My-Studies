@@ -1,0 +1,78 @@
+<form class="flex m-10 gap-2 items-center" (submit)="addTask()">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input
+      required
+      [(ngModel)]="taskTitle"
+      matInput
+      placeholder="Title"
+      name="title"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input
+      required
+      [(ngModel)]="taskDescription"
+      matInput
+      placeholder="Description"
+      name="description"
+    />
+  </mat-form-field>
+  <button class="mb-4" mat-raised-button color="primary">
+    <mat-icon>add</mat-icon>
+    Add Task
+  </button>
+</form>
+
+<div class="m-10 flex" cdkDropListGroup>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @if (todo.length <= 0) {
+      <p class="text-lg font-light text-center mt-4">No tasks</p>
+      } @else { @for (item of todo; track item) {
+      <div class="example-box flex justify-between items-center" cdkDrag>
+        <div>
+          <p class="text-lg font-medium">{{ item.title }}</p>
+          <p class="text-xs italic">{{ item.description }}</p>
+        </div>
+        <button mat-icon-button class="mr-4" (click)="deleteTask(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      } }
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @if (done.length <= 0) {
+      <p class="text-lg font-light text-center mt-4">No tasks</p>
+      } @else { @for (item of done; track item) {
+      <div class="example-box flex justify-between items-center" cdkDrag>
+        <div>
+          <p class="text-lg font-medium">{{ item.title }}</p>
+          <p class="text-xs italic">{{ item.description }}</p>
+        </div>
+        <button mat-icon-button class="mr-4" (click)="deleteTask(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      }}
+    </div>
+  </div>
+</div>
