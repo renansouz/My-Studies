@@ -12,6 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-task',
@@ -24,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
   ],
   templateUrl: './task.component.html',
   styles: [
@@ -76,11 +80,41 @@ import { MatIconModule } from '@angular/material/icon';
         .example-box:not(.cdk-drag-placeholder) {
         transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
       }
+
+      .example-box button {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .example-box:hover button {
+        opacity: 1;
+      }
     `,
   ],
 })
 export class TaskComponent {
-  todo: { title: string; description: string }[] = [];
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TaskDialogComponent, {
+      width: '250px',
+      data: {
+        taskTitle: this.taskTitle,
+        taskDescription: this.taskDescription,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.taskTitle = result.taskTitle;
+        this.taskDescription = result.taskDescription;
+        this.addTask();
+      }
+    });
+  }
+
+  backlog: { title: string; description: string }[] = [];
+  inProgress: { title: string; description: string }[] = [];
   done: { title: string; description: string }[] = [];
 
   taskTitle: string = '';
@@ -105,7 +139,7 @@ export class TaskComponent {
 
   addTask() {
     if (this.taskTitle && this.taskDescription) {
-      this.todo.push({
+      this.backlog.push({
         title: this.taskTitle,
         description: this.taskDescription,
       });
@@ -113,8 +147,22 @@ export class TaskComponent {
       this.taskDescription = '';
     }
   }
-  deleteTask(task: { title: string; description: string }) {
-    this.todo = this.todo.filter((t) => t.title !== task.title);
-    this.done = this.done.filter((t) => t.title !== task.title);
+  deleteTask(list: string, task: { title: string; description: string }) {
+    if (list === 'backlog') {
+      const index = this.backlog.indexOf(task);
+      if (index > -1) {
+        this.backlog.splice(index, 1);
+      }
+    } else if (list === 'inProgress') {
+      const index = this.inProgress.indexOf(task);
+      if (index > -1) {
+        this.inProgress.splice(index, 1);
+      }
+    } else if (list === 'done') {
+      const index = this.done.indexOf(task);
+      if (index > -1) {
+        this.done.splice(index, 1);
+      }
+    }
   }
 }
