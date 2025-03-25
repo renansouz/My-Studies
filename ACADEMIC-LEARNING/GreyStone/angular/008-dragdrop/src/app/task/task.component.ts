@@ -42,7 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
       .example-list {
         border: solid 1px #ccc;
-        min-height: 60px;
+        min-height: 85px;
         background: white;
         border-radius: 4px;
         overflow: hidden;

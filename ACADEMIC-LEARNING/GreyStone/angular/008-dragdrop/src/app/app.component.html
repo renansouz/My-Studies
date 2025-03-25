@@ -1,4 +1,15 @@
-<mat-toolbar color="primary">
-  <mat-icon>local_fire_department</mat-icon> <span>Kanban Fire</span>
+<mat-toolbar color="primary" class="flex justify-between">
+  <div><mat-icon>local_fire_department</mat-icon> <span>Kanban Fire</span></div>
+  @if (authService.currentUserSig() === null) {
+  <div class="flex gap-4 right-0">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </div>
+  } @if (authService.currentUserSig()) {
+  <div>
+    {{ authService.currentUserSig()?.username }}
+    <span (click)="logout()">Logout</span>
+  </div>
+  }
 </mat-toolbar>
-<app-task></app-task>
+<router-outlet></router-outlet>
