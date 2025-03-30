@@ -1,1 +1,53 @@
-<p>register works!</p>
+<div
+  class="w-72 p-4 flex flex-col justify-center items-center m-10 gap-8 bg-slate-50 rounded-lg shadow-2xl"
+>
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>First Name:</label>
+    <input
+      class="border border-slate-900"
+      type="text"
+      formControlName="firstName"
+    /><br />
+
+    <label>Last Name:</label>
+    <input
+      class="border border-slate-900"
+      type="text"
+      formControlName="lastName"
+    /><br />
+
+    <label>Country:</label><br />
+    <input
+      class="border border-slate-900"
+      type="text"
+      formControlName="country"
+    /><br />
+
+    <label>Note:</label><br />
+    <textarea class="border border-slate-900" formControlName="note"></textarea
+    ><br />
+
+    <button
+      class="border p-4 bg-blue-600 text-white"
+      type="submit"
+      [disabled]="registerForm.invalid"
+    >
+      Submit
+    </button>
+    <button
+      class="border p-4 bg-blue-400 text-white"
+      type="button"
+      (click)="onReset()"
+    >
+      Reset
+    </button>
+    @if(success) {
+    <p class="text-green-500">User registered successfully!</p>
+    } @else {
+    <p class="text-red-500">register failed</p>
+    }
+  </form>
+
+  <a routerLink="/secret">Go to Secret Page</a>
+</div>

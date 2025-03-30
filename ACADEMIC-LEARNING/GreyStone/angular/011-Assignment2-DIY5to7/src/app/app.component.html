@@ -1,4 +1,18 @@
-<div class="w-full flex flex-col justify-center items-center h-screen gap-8">
+<div class="mt-10">
+  <a
+    class="bg-slate-300 p-2 rounded-lg border border-slate-900 m-5"
+    routerLink="/register"
+    >Register Component</a
+  >
+  <a
+    class="bg-slate-300 p-2 rounded-lg border border-slate-900 m-5"
+    routerLink="/secret"
+    >Secret Component</a
+  >
+</div>
+<router-outlet></router-outlet>
+
+<div class="w-full flex flex-col justify-center items-center mt-10 gap-8">
   <h2 class="font-black text-3xl">Plus minus game</h2>
 
   <h2 class="text-7xl">{{ count }}</h2>
