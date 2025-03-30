@@ -1,0 +1,18 @@
+<div class="w-full flex flex-col justify-center items-center h-screen gap-8">
+  <h2 class="font-black text-3xl">Plus minus game</h2>
+
+  <h2 class="text-7xl">{{ count }}</h2>
+
+  <div>
+    <app-decrement [count]="count" (countChange)="count = $event">
+    </app-decrement>
+    <app-increment [count]="count" (countChange)="count = $event">
+    </app-increment>
+    <button
+      class="bg-slate-400 p-2 ml-2 border-slate-700 border rounded-lg"
+      (click)="resetButton()"
+    >
+      Reset
+    </button>
+  </div>
+</div>
