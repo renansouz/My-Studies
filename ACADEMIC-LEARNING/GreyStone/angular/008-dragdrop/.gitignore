@@ -12,6 +12,7 @@ npm-debug.log
 yarn-error.log
 # Configuration files
 app.config.ts
+/src/app/app.config.ts
 # IDEs and editors
 .idea/
 .project
