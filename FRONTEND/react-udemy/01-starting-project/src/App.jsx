@@ -17,13 +17,21 @@ function App() {
             <CoreConcepts {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
-        <section id="exampless">
+        <section id="examples">
+          {" "}
+          {/* Fixed typo */}
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onClick={() => alert("Components tab clicked!")}>
+              Components
+            </TabButton>
+            <TabButton onClick={() => alert("JSX tab clicked!")}>JSX</TabButton>
+            <TabButton onClick={() => alert("Props tab clicked!")}>
+              Props
+            </TabButton>
+            <TabButton onClick={() => alert("State tab clicked!")}>
+              State
+            </TabButton>
           </menu>
         </section>
       </main>
