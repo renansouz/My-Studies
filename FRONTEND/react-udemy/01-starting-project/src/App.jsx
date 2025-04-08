@@ -4,6 +4,10 @@ import CoreConcepts from "./components/CoreConcept.jsx";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  function handleSelect(selectedButton) {
+    console.log("Hello World - selected!" + selectedButton);
+  }
+
   return (
     <div>
       <Header />
@@ -18,21 +22,16 @@ function App() {
           </ul>
         </section>
         <section id="examples">
-          {" "}
-          {/* Fixed typo */}
           <h2>Examples</h2>
           <menu>
-            <TabButton onClick={() => alert("Components tab clicked!")}>
+            <TabButton onSelect={() => handleSelect("components")}>
               Components
             </TabButton>
-            <TabButton onClick={() => alert("JSX tab clicked!")}>JSX</TabButton>
-            <TabButton onClick={() => alert("Props tab clicked!")}>
-              Props
-            </TabButton>
-            <TabButton onClick={() => alert("State tab clicked!")}>
-              State
-            </TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
+          Dynamic Content
         </section>
       </main>
     </div>

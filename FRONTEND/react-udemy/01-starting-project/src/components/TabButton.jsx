@@ -1,9 +1,7 @@
-export default function TabButton({ children, onClick }) {
+export default function TabButton({ children, onSelect }) {
   return (
     <li>
-      <button onClick={onClick} aria-label={`Tab for ${children}`}>
-        {children}
-      </button>
+      <button onClick={onSelect}>{children}</button>
     </li>
   );
 }
