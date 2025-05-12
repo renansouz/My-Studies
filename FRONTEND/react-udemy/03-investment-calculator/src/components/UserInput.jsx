@@ -9,7 +9,7 @@ export default function UserInput({ onChange, userInput }) {
             value={userInput.initialInvestment}
             required
             onChange={(event) =>
-              onChange(initialInvestment, event.target.value)
+              onChange("initialInvestment", event.target.value)
             }
           />
         </p>
@@ -17,10 +17,10 @@ export default function UserInput({ onChange, userInput }) {
           <label>Annual Investment</label>
           <input
             type="number"
-            value={userInput.annnualInvestment}
+            value={userInput.annualInvestment}
             required
             onChange={(event) =>
-              onChange(annnualInvestment, event.target.value)
+              onChange("annualInvestment", event.target.value)
             }
           />
         </p>
@@ -32,7 +32,7 @@ export default function UserInput({ onChange, userInput }) {
             type="number"
             value={userInput.expectedReturn}
             required
-            onChange={(event) => onChange(expectedReturn, event.target.value)}
+            onChange={(event) => onChange("expectedReturn", event.target.value)}
           />
         </p>
         <p>
@@ -41,7 +41,7 @@ export default function UserInput({ onChange, userInput }) {
             type="number"
             value={userInput.duration}
             required
-            onChange={(event) => onChange(duration, event.target.value)}
+            onChange={(event) => onChange("duration", event.target.value)}
           />
         </p>
       </div>
